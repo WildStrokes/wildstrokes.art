@@ -19,20 +19,41 @@
             border-radius: 10px;
         }
         #content {
-            display: none; /* Hide portfolio until confirmed */
+            display: none; /* Hide portfolio until verified */
         }
-        h1 {
-            margin-bottom: 40px;
+        #clearButton {
+            margin-top: 50px;
+            font-size: 14px;
+            background-color: #333;
+            color: #ccc;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #clearButton:hover {
+            background-color: #555;
         }
     </style>
     <script>
         window.onload = function() {
-            var confirmed = confirm("Wild Stoke's Portfolio:  This page contains adult content. Are you 18 years or older?");
-            if (confirmed) {
+            if (localStorage.getItem("ageVerified") === "true") {
                 document.getElementById("content").style.display = "block";
             } else {
-                window.location.href = "https://google.com"; // or wildstrokes.art home page
+                var confirmed = confirm("This page contains adult content. Are you 18 years or older?");
+                if (confirmed) {
+                    localStorage.setItem("ageVerified", "true");
+                    document.getElementById("content").style.display = "block";
+                } else {
+                    window.location.href = "https://wildstrokes.art"; // or wherever you want
+                }
             }
+        }
+
+        function clearVerification() {
+            localStorage.removeItem("ageVerified");
+            alert("Age verification cleared. You will be asked again next time.");
+            window.location.reload();
         }
     </script>
 </head>
@@ -49,6 +70,9 @@
         <img src="../assets/IMG_1500.jpeg" alt="Artwork 7">
         <img src="../assets/IMG_1501.jpeg" alt="Artwork 8">
         <img src="../assets/IMG_1502.jpeg" alt="Artwork 9">
+
+        <br><br>
+        <button id="clearButton" onclick="clearVerification()">Clear Age Verification</button>
     </div>
 </body>
 </html>
