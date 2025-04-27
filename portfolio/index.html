@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>WildStrokes Portfolio</title>
+    <title>WildStrokes Portfolio (18+)</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -18,23 +18,37 @@
             border: 2px solid #555;
             border-radius: 10px;
         }
+        #content {
+            display: none; /* Hide portfolio until confirmed */
+        }
         h1 {
             margin-bottom: 40px;
         }
     </style>
+    <script>
+        window.onload = function() {
+            var confirmed = confirm("This page contains adult content. Are you 18 years or older?");
+            if (confirmed) {
+                document.getElementById("content").style.display = "block";
+            } else {
+                window.location.href = "https://google.com"; // or wildstrokes.art home page
+            }
+        }
+    </script>
 </head>
 <body>
-    <h1>WildStrokes Art Portfolio</h1>
+    <div id="content">
+        <h1>WildStrokes 18+ Art Portfolio</h1>
 
-    <img src="../assets/IMG_1494.jpeg" alt="Artwork 1">
-    <img src="../assets/IMG_1495.jpeg" alt="Artwork 2">
-    <img src="../assets/IMG_1496.jpeg" alt="Artwork 3">
-    <img src="../assets/IMG_1497.jpeg" alt="Artwork 4">
-    <img src="../assets/IMG_1498.jpeg" alt="Artwork 5">
-    <img src="../assets/IMG_1499.jpeg" alt="Artwork 6">
-    <img src="../assets/IMG_1500.jpeg" alt="Artwork 7">
-    <img src="../assets/IMG_1501.jpeg" alt="Artwork 8">
-    <img src="../assets/IMG_1502.jpeg" alt="Artwork 9">
-
+        <img src="../assets/IMG_1494.jpeg" alt="Artwork 1">
+        <img src="../assets/IMG_1495.jpeg" alt="Artwork 2">
+        <img src="../assets/IMG_1496.jpeg" alt="Artwork 3">
+        <img src="../assets/IMG_1497.jpeg" alt="Artwork 4">
+        <img src="../assets/IMG_1498.jpeg" alt="Artwork 5">
+        <img src="../assets/IMG_1499.jpeg" alt="Artwork 6">
+        <img src="../assets/IMG_1500.jpeg" alt="Artwork 7">
+        <img src="../assets/IMG_1501.jpeg" alt="Artwork 8">
+        <img src="../assets/IMG_1502.jpeg" alt="Artwork 9">
+    </div>
 </body>
 </html>
