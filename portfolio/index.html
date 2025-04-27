@@ -40,7 +40,7 @@
             if (localStorage.getItem("ageVerified") === "true") {
                 document.getElementById("content").style.display = "block";
             } else {
-                var confirmed = confirm("This page contains adult content. Are you 18 years or older?");
+                var confirmed = confirm("This portfolio contains adult content. Are you 18 years or older?");
                 if (confirmed) {
                     localStorage.setItem("ageVerified", "true");
                     document.getElementById("content").style.display = "block";
