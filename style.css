@@ -1,79 +1,68 @@
-/* ─── Pastel design tokens ─────────────────────────────── */
-:root{
-  --clr-bg:      #f9f7fc;  /* paper-white lavender   */
-  --clr-surface: #ffffff;  /* cards / headers        */
-  --clr-text:    #3a3a3a;  /* dark gray for 7:1 AA   */
-  --clr-primary: #bea6ff;  /* pastel lavender        */
-  --clr-accent1: #ffd4e5;  /* pastel pink            */
-  --clr-accent2: #baf2d8;  /* pastel mint            */
-  --clr-border:  #e2dcf7;  /* faint lavender stroke  */
-  --radius:      12px;
-  --shadow:      0 2px 6px rgba(0,0,0,.08);
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #faf6ff; /* light pastel background */
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
 }
 
-/* ─── Global layout ────────────────────────────────────── */
-html{box-sizing:border-box} *,*::before,*::after{box-sizing:inherit}
-body{
-  margin:0;
-  background:var(--clr-bg);
-  color:var(--clr-text);
-  font-family:system-ui,-apple-system,'Segoe UI',sans-serif;
-  line-height:1.55;
+/* Card styles */
+.card {
+    background-color: #ffeef8; /* pastel pink */
+    border: 1px solid #e0cfe0;
+    border-radius: 12px;
+    padding: 16px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-/* ─── Generic header ───────────────────────────────────── */
-.site-header{
-  text-align:center;
-  padding:3rem 1rem 1.5rem;
-}
-.site-header h1{margin:0 0 .25rem;font-size:2.1rem}
-
-/* ─── YCH grid & cards ─────────────────────────────────── */
-.ych-grid{
-  display:grid;
-  gap:2rem;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  max-width:1200px;
-  margin:0 auto 4rem;
-  padding:0 1rem;
+/* Card image styles */
+.card img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
 }
 
-.ych-card{
-  background:var(--clr-surface);
-  border:1px solid var(--clr-border);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  overflow:hidden;
-  text-align:left;
+/* Buttons */
+a.button {
+    display: inline-block;
+    margin: 20px 10px;
+    padding: 12px 24px;
+    background-color: #d4eaff; /* pastel blue */
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 10px;
+    transition: background-color 0.3s;
 }
-.ych-card img{
-  display:block;
-  width:100%;
-  height:auto;
+a.button:hover {
+    background-color: #b3d9ff;
 }
-.ych-card figcaption{padding:1.25rem}
-.ych-card h2{margin:0 0 .5rem;font-size:1.25rem}
 
-/* badges */
-.badge{
-  display:inline-block;
-  padding:.15rem .6rem;
-  border-radius:9999px;
-  font-size:.8rem;
-  font-weight:600;
-  letter-spacing:.03em;
+/* Optional: container to center cards if needed */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
-.badge--open {background:var(--clr-accent2)}
-.badge--sold {background:#ffdada}
 
-/* upsell list */
-.ych-options{
-  list-style:none;
-  margin:1rem 0 0;
-  padding:0;
+/* Clear button style */
+#clearButton {
+    margin-top: 40px;
+    font-size: 14px;
+    background-color: #e0d4ff;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
 }
-.ych-options li{
-  padding:.45rem 0;
-  border-bottom:1px solid var(--clr-border);
+#clearButton:hover {
+    background-color: #cbb9ff;
 }
-.ych-options li:last-child{border-bottom:none}
