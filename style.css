@@ -78,76 +78,38 @@ a.button:focus{
         --clr-bg:   #FFFFFF;
         --clr-text: #000000;
     }
-}
-.ych-card {
+    .ych-card {
   width: 95vw;
   margin: 1.5rem auto;
-  background: #dbeafe;
-  color: #111;
-  border: 2px solid #bfdbfe;
-  border-radius: 10px;
-  overflow: hidden;
+  background: var(--clr-accent);
+  color: var(--clr-text);
+  border: 2px solid var(--clr-border);
+  border-radius: var(--radius);
   padding: 1rem;
   box-sizing: border-box;
+  text-align: left;
 }
-
 .ych-card img {
   width: 100%;
   height: auto;
-  border-radius: 6px;
+  border-radius: calc(var(--radius) / 2);
 }
-
 .ych-card figcaption {
   margin-top: 1rem;
-  color: #ccc;
-  text-align: left;
 }
-
 .ych-card h2 {
   margin-bottom: 0.5rem;
   font-size: 1.5rem;
-  color: #fff;
 }
-
 .ych-card .ych-options {
   list-style: none;
   padding-left: 1rem;
   margin-top: 1rem;
 }
-
 .ych-card .ych-options li {
   padding: 0.3rem 0;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid var(--clr-border);
+}
 }
 
-.badge {
-  display: inline-block;
-  padding: 0.2em 0.6em;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  background: #3a7;
-  color: #fff;
-}
-.ych-card figcaption {
-  margin-top: 1rem;
-  color: #ccc;
-  text-align: left;
-}
-
-.ych-card h2 {
-  margin-bottom: 0.5rem;
-  font-size: 1.4rem;
-  color: #fff;
-}
-
-.ych-card .ych-options {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 1rem;
-}
-
-.ych-card .ych-options li {
-  padding: 0.3rem 0;
-  border-bottom: 1px solid #333;
-}
 
