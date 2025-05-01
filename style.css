@@ -1,115 +1,79 @@
-/* ----------  Pastel theme  ---------- */
+/* ─── Pastel design tokens ─────────────────────────────── */
 :root{
-    /* Core palette (inspired by lilac-pink-mint palettes #4 & #7 in Venngage’s 2025 list) */
-    --clr-bg:            #F9F7FC;   /* very-light lavender  */
-    --clr-text:          #3A3A3A;   /* charcoal for 7.6:1 contrast     */
-    --clr-border:        #DDD6E8;   /* muted lavender-grey */
-
-    --clr-primary:       #7759AF;   /* soft violet – 5.5:1 vs white    */
-    --clr-primary-hover: #6A4DA0;   /* slightly deeper for hover       */
-
-    --clr-accent:        #F4C3D9;   /* blush pink – for subtle fills   */
-    --clr-accent-hover:  #E8B3CA;   /* darkened 10 % for hover focus   */
-
-    --radius: 10px;
-    --transition: background-color .3s ease;
-    --spacing: 20px;
+  --clr-bg:      #f9f7fc;  /* paper-white lavender   */
+  --clr-surface: #ffffff;  /* cards / headers        */
+  --clr-text:    #3a3a3a;  /* dark gray for 7:1 AA   */
+  --clr-primary: #bea6ff;  /* pastel lavender        */
+  --clr-accent1: #ffd4e5;  /* pastel pink            */
+  --clr-accent2: #baf2d8;  /* pastel mint            */
+  --clr-border:  #e2dcf7;  /* faint lavender stroke  */
+  --radius:      12px;
+  --shadow:      0 2px 6px rgba(0,0,0,.08);
 }
 
-/* ----------  Global  ---------- */
+/* ─── Global layout ────────────────────────────────────── */
+html{box-sizing:border-box} *,*::before,*::after{box-sizing:inherit}
 body{
-    font-family: Arial, sans-serif;
-    background-color: var(--clr-bg);
-    color: var(--clr-text);
-    text-align: center;
-    padding: var(--spacing);
+  margin:0;
+  background:var(--clr-bg);
+  color:var(--clr-text);
+  font-family:system-ui,-apple-system,'Segoe UI',sans-serif;
+  line-height:1.55;
 }
 
-/* ----------  Images  ---------- */
-img{
-    width: 80%;
-    max-width: 600px;
-    margin: var(--spacing) 0;
-    border: 2px solid var(--clr-border);
-    border-radius: var(--radius);
+/* ─── Generic header ───────────────────────────────────── */
+.site-header{
+  text-align:center;
+  padding:3rem 1rem 1.5rem;
+}
+.site-header h1{margin:0 0 .25rem;font-size:2.1rem}
+
+/* ─── YCH grid & cards ─────────────────────────────────── */
+.ych-grid{
+  display:grid;
+  gap:2rem;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  max-width:1200px;
+  margin:0 auto 4rem;
+  padding:0 1rem;
 }
 
-/* ----------  Buttons & links  ---------- */
-a.button{
-    display: inline-block;
-    margin: var(--spacing);
-    padding: 15px 30px;
-    background-color: var(--clr-primary);
-    color: #FFFFFF;                    /* passes contrast on #7759AF     */
-    text-decoration: none;
-    font-size: 18px;
-    border-radius: var(--radius);
-    transition: var(--transition);
+.ych-card{
+  background:var(--clr-surface);
+  border:1px solid var(--clr-border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  text-align:left;
 }
-a.button:hover,
-a.button:focus{
-    background-color: var(--clr-primary-hover);
+.ych-card img{
+  display:block;
+  width:100%;
+  height:auto;
 }
+.ych-card figcaption{padding:1.25rem}
+.ych-card h2{margin:0 0 .5rem;font-size:1.25rem}
 
-/* “Clear” action styled in a softer accent to de-emphasise it */
-#clearButton{
-    margin-top: 50px;
-    font-size: 14px;
-    background-color: var(--clr-accent);
-    color: var(--clr-text);            /* 4.7:1 on #F4C3D9               */
-    padding: 10px 20px;
-    border: none;
-    border-radius: var(--radius);
-    cursor: pointer;
-    transition: var(--transition);
+/* badges */
+.badge{
+  display:inline-block;
+  padding:.15rem .6rem;
+  border-radius:9999px;
+  font-size:.8rem;
+  font-weight:600;
+  letter-spacing:.03em;
 }
-#clearButton:hover,
-#clearButton:focus{
-    background-color: var(--clr-accent-hover);
-}
+.badge--open {background:var(--clr-accent2)}
+.badge--sold {background:#ffdada}
 
-/* ----------  Hidden content area  ---------- */
-#content{ display:none; }
-
-/* ----------  Optional high-contrast fallback  ---------- */
-/* Users who’ve set “increase contrast” in OS/browser will get this */
-@media (prefers-contrast: more){
-    :root{
-        --clr-bg:   #FFFFFF;
-        --clr-text: #000000;
-    }
-    .ych-card {
-  width: 95vw;
-  margin: 1.5rem auto;
-  background: var(--clr-accent);
-  color: var(--clr-text);
-  border: 2px solid var(--clr-border);
-  border-radius: var(--radius);
-  padding: 1rem;
-  box-sizing: border-box;
-  text-align: left;
+/* upsell list */
+.ych-options{
+  list-style:none;
+  margin:1rem 0 0;
+  padding:0;
 }
-.ych-card img {
-  width: 100%;
-  height: auto;
-  border-radius: calc(var(--radius) / 2);
+.ych-options li{
+  padding:.45rem 0;
+  border-bottom:1px solid var(--clr-border);
 }
-.ych-card figcaption {
-  margin-top: 1rem;
-}
-.ych-card h2 {
-  margin-bottom: 0.5rem;
-  font-size: 1.5rem;
-}
-.ych-card .ych-options {
-  list-style: none;
-  padding-left: 1rem;
-  margin-top: 1rem;
-}
-.ych-card .ych-options li {
-  padding: 0.3rem 0;
-  border-bottom: 1px solid var(--clr-border);
-}
-}
-
-
+.ych-options li:last-child{border-bottom:none}
