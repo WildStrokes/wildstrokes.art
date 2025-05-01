@@ -1,37 +1,93 @@
 /* Global styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #faf6ff; /* light pastel */
+    background-color: #faf6ff; /* light pastel background */
     color: #333;
     text-align: center;
-    padding: 20px;
     margin: 0;
+    padding: 20px;
 }
 
-/* Card styles */
-.card {
-    background-color: #fff0f5; /* soft pink */
+/* Header */
+.site-header {
+    margin-bottom: 40px;
+}
+
+.site-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.site-header p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* YCH Card layout */
+.ych-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+}
+
+/* Individual card styling */
+.ych-card {
+    background-color: #fff0f5; /* pastel pink */
     border: 1px solid #e6d6eb;
     border-radius: 12px;
     padding: 20px;
-    margin: 30px auto;
     max-width: 800px;
+    width: 100%;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: left;
 }
 
 /* Card images */
-.card img {
-    width: 95%;
-    max-width: 95%;
+.ych-card img {
+    width: 100%;
+    max-width: 100%;
     height: auto;
     border-radius: 10px;
-    margin: 10px 0;
+    margin-bottom: 10px;
 }
 
-/* Button styles */
+/* Badge styling */
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.badge--open {
+    background-color: #d4f4dd;
+    color: #225533;
+}
+
+.badge--sold {
+    background-color: #f9d4d4;
+    color: #993333;
+}
+
+/* YCH Options List */
+.ych-options {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+.ych-options li {
+    margin: 6px 0;
+    color: #555;
+}
+
+/* Buttons if you add any */
 a.button {
     display: inline-block;
-    margin: 20px;
+    margin: 20px 10px;
     padding: 12px 24px;
     background-color: #cce5ff;
     color: #333;
@@ -40,21 +96,7 @@ a.button {
     border-radius: 10px;
     transition: background-color 0.3s;
 }
+
 a.button:hover {
     background-color: #b3d9ff;
-}
-
-/* Clear button */
-#clearButton {
-    margin-top: 50px;
-    font-size: 14px;
-    background-color: #e0d4ff;
-    color: #333;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-#clearButton:hover {
-    background-color: #cbb9ff;
 }
