@@ -80,14 +80,14 @@ a.button:focus{
     }
 }
 .ych-card {
-  width: 95%;
-  max-width: 800px;
-  margin: 2rem auto;
+  width: 95vw;
+  margin: 1.5rem auto;
   background: #222;
   border: 2px solid #444;
   border-radius: 10px;
   overflow: hidden;
   padding: 1rem;
+  box-sizing: border-box;
 }
 
 .ych-card img {
@@ -96,6 +96,37 @@ a.button:focus{
   border-radius: 6px;
 }
 
+.ych-card figcaption {
+  margin-top: 1rem;
+  color: #ccc;
+  text-align: left;
+}
+
+.ych-card h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.ych-card .ych-options {
+  list-style: none;
+  padding-left: 1rem;
+  margin-top: 1rem;
+}
+
+.ych-card .ych-options li {
+  padding: 0.3rem 0;
+  border-bottom: 1px solid #333;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.2em 0.6em;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  background: #3a7;
+  color: #fff;
+}
 .ych-card figcaption {
   margin-top: 1rem;
   color: #ccc;
