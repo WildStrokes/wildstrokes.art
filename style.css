@@ -23,25 +23,27 @@ body {
     color: #555;
 }
 
-/* YCH Card layout */
+/* YCH grid – give the whole row breathing room */
 .ych-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding-inline: 2vw;   /* ← replaces plain “padding: 10px;” */
 }
 
-/* Individual card styling */
+/* Individual card */
 .ych-card {
-    background-color: #fff0f5; /* pastel pink */
-    border: 1px solid #e6d6eb;
-    border-radius: 12px;
-    padding: 20px;
-    max-width: 800px;
-    width: 100%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    text-align: left;
+  background-color: #fff0f5;       /* pastel pink */
+  border: 1px solid #e6d6eb;
+  border-radius: 12px;
+  padding: 20px;
+  /* make it fill the row */
+  flex: 1 1 100%;
+  width: 100%;
+  max-width: none;                 /* ← remove the 800 px cap */
+  box-shadow: 0 4px 10px rgb(0 0 0 / 5%);
+  text-align: left;
 }
 
 /* Card images */
