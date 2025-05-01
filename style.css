@@ -1,40 +1,39 @@
 /* Global styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #faf6ff; /* light pastel background */
+    background-color: #faf6ff; /* light pastel */
     color: #333;
     text-align: center;
-    margin: 0;
     padding: 20px;
+    margin: 0;
 }
 
 /* Card styles */
 .card {
-    background-color: #ffeef8; /* pastel pink */
-    border: 1px solid #e0cfe0;
+    background-color: #fff0f5; /* soft pink */
+    border: 1px solid #e6d6eb;
     border-radius: 12px;
-    padding: 16px;
-    margin: 20px auto;
+    padding: 20px;
+    margin: 30px auto;
     max-width: 800px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* Card image styles */
+/* Card images */
 .card img {
-    width: 100%;
-    max-width: 100%;
+    width: 95%;
+    max-width: 95%;
     height: auto;
-    border-radius: 8px;
-    display: block;
-    margin: 0 auto;
+    border-radius: 10px;
+    margin: 10px 0;
 }
 
-/* Buttons */
+/* Button styles */
 a.button {
     display: inline-block;
-    margin: 20px 10px;
+    margin: 20px;
     padding: 12px 24px;
-    background-color: #d4eaff; /* pastel blue */
+    background-color: #cce5ff;
     color: #333;
     text-decoration: none;
     font-size: 16px;
@@ -45,22 +44,15 @@ a.button:hover {
     background-color: #b3d9ff;
 }
 
-/* Optional: container to center cards if needed */
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Clear button style */
+/* Clear button */
 #clearButton {
-    margin-top: 40px;
+    margin-top: 50px;
     font-size: 14px;
     background-color: #e0d4ff;
     color: #333;
     padding: 10px 20px;
     border: none;
-    border-radius: 6px;
+    border-radius: 5px;
     cursor: pointer;
 }
 #clearButton:hover {
