@@ -82,8 +82,9 @@ a.button:focus{
 .ych-card {
   width: 95vw;
   margin: 1.5rem auto;
-  background: #222;
-  border: 2px solid #444;
+  background: #dbeafe;
+  color: #111;
+  border: 2px solid #bfdbfe;
   border-radius: 10px;
   overflow: hidden;
   padding: 1rem;
