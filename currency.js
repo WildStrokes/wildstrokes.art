@@ -1,17 +1,19 @@
 (async () => {
   try {
-    // Get user's location and currency info
     const geo = await fetch('https://ipapi.co/json/').then(res => res.json());
     const currency = geo.currency || 'USD';
 
-    // If user's currency is USD, no need to convert
-    const fxRate = currency === 'USD'
-      ? 1
-      : await fetch(`https://api.exchangerate.host/convert?from=USD&to=${currency}`)
-          .then(res => res.json())
-          .then(data => data.result || 1);
+    const fxRes = await fetch(`https://api.exchangerate.host/convert?from=USD&to=${currency}`);
+    const fxData = await fxRes.json();
 
-    // Update all price elements
+    // Show debug info on screen for iPad users
+    const debug = document.createElement('div');
+    debug.style = "background: #ffeecc; padding: 10px; font-size: 14px; margin: 10px;";
+    debug.innerText = `Currency: ${currency}, Rate: ${fxData.result}`;
+    document.body.prepend(debug);
+
+    const fxRate = (fxData && typeof fxData.result === 'number') ? fxData.result : 1;
+
     document.querySelectorAll('.price').forEach(el => {
       const usd = parseFloat(el.dataset.usd);
       const converted = (usd * fxRate).toFixed(2);
@@ -19,9 +21,13 @@
         ? `$${converted} USD`
         : `${converted} ${currency}`;
     });
+
   } catch (err) {
-    console.error('Currency conversion failed:', err);
-    // Fallback: display USD if anything breaks
+    const fallback = document.createElement('div');
+    fallback.style = "background: #ffcccc; padding: 10px; font-size: 14px; margin: 10px;";
+    fallback.innerText = "Currency detection failed. Showing USD.";
+    document.body.prepend(fallback);
+
     document.querySelectorAll('.price').forEach(el => {
       const usd = parseFloat(el.dataset.usd);
       el.textContent = `$${usd.toFixed(2)} USD`;
