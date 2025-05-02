@@ -3,16 +3,20 @@
     const geo = await fetch('https://ipapi.co/json/').then(res => res.json());
     const currency = geo.currency || 'USD';
 
-    const fxRes = await fetch(`https://api.exchangerate.host/convert?from=USD&to=${currency}`);
-    const fxData = await fxRes.json();
+    let fxRate = 1;
 
-    // Show debug info on screen for iPad users
-    const debug = document.createElement('div');
-    debug.style = "background: #ffeecc; padding: 10px; font-size: 14px; margin: 10px;";
-    debug.innerText = `Currency: ${currency}, Rate: ${fxData.result}`;
-    document.body.prepend(debug);
+    if (currency !== 'USD') {
+      const fxData = await fetch(`https://api.exchangerate.host/latest?base=USD&symbols=${currency}`)
+        .then(res => res.json());
 
-    const fxRate = (fxData && typeof fxData.result === 'number') ? fxData.result : 1;
+      fxRate = fxData.rates?.[currency] || 1;
+
+      // Show debug info
+      const debug = document.createElement('div');
+      debug.style = "background: #ffeecc; padding: 10px; font-size: 14px; margin: 10px;";
+      debug.innerText = `Currency: ${currency}, Rate: ${fxRate}`;
+      document.body.prepend(debug);
+    }
 
     document.querySelectorAll('.price').forEach(el => {
       const usd = parseFloat(el.dataset.usd);
