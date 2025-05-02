@@ -4,19 +4,22 @@
     const currency = geo.currency || 'USD';
 
     let fxRate = 1;
+    let debugMsg = '';
 
     if (currency !== 'USD') {
-      const fxData = await fetch(`https://api.exchangerate.host/latest?base=USD&symbols=${currency}`)
-        .then(res => res.json());
+      const fxRes = await fetch(`https://api.exchangerate.host/latest?base=USD&symbols=${currency}`);
+      const fxData = await fxRes.json();
 
       fxRate = fxData.rates?.[currency] || 1;
-
-      // Show debug info
-      const debug = document.createElement('div');
-      debug.style = "background: #ffeecc; padding: 10px; font-size: 14px; margin: 10px;";
-      debug.innerText = `Currency: ${currency}, Rate: ${fxRate}`;
-      document.body.prepend(debug);
+      debugMsg = `Currency: ${currency}\nRate: ${fxRate}\nFull API Response:\n${JSON.stringify(fxData, null, 2)}`;
+    } else {
+      debugMsg = `Currency: USD (no conversion needed)`;
     }
+
+    const debug = document.createElement('pre');
+    debug.style = "background: #ffeecc; padding: 10px; font-size: 13px; margin: 10px; white-space: pre-wrap;";
+    debug.textContent = debugMsg;
+    document.body.prepend(debug);
 
     document.querySelectorAll('.price').forEach(el => {
       const usd = parseFloat(el.dataset.usd);
