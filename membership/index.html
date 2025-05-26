@@ -1,1 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Membership | WildStrokes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
 
+  <div id="content">
+    <header class="site-header">
+      <h1>Just a Peek – $3 Membership</h1>
+    </header>
+
+    <section class="ych-card">
+      <h2>What You Get</h2>
+      <ul>
+        <li>Access to a private Telegram channel</li>
+        <li>Exclusive early previews of upcoming art</li>
+        <li>Behind-the-scenes WIP sketches</li>
+        <li>First dibs on all YCH slot openings</li>
+      </ul>
+    </section>
+
+    <section class="ych-card">
+      <h2>Join Now</h2>
+      <p>Become a member to support my work and get insider access.</p>
+      <div id="paypal-button-container-P-0F008842126119604NA2MVAA"></div>
+    </section>
+  </div>
+
+  <script src="https://www.paypal.com/sdk/js?client-id=AQRhOvnkPsVu6kZ5_EMMY0RPYrzQ5ivhELN917zpJsNDwELxf7PS21mbZ30igS-WL9yfpPHP6ueDyJPp&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+  <script>
+    paypal.Buttons({
+        style: {
+            shape: 'pill',
+            color: 'white',
+            layout: 'horizontal',
+            label: 'subscribe'
+        },
+        createSubscription: function(data, actions) {
+          return actions.subscription.create({
+            plan_id: 'P-0F008842126119604NA2MVAA'
+          });
+        },
+        onApprove: function(data, actions) {
+          alert(data.subscriptionID);
+        }
+    }).render('#paypal-button-container-P-0F008842126119604NA2MVAA');
+  </script>
+
+</body>
+</html>
