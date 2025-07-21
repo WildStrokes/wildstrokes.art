@@ -9,23 +9,14 @@ const addBtn = document.getElementById('add-btn');
 const saveBtn = document.getElementById('save-btn');
 const ychList = document.getElementById('ych-list');
 
-const ghOwnerInput = document.getElementById("gh-owner");
-const ghRepoInput = document.getElementById("gh-repo");
-const ghBranchInput = document.getElementById("gh-branch");
-const ghTokenInput = document.getElementById("gh-token");
+const imgurClientIdInput = document.getElementById("imgur-client-id");
 let ychs = [];
-function loadGithubConfig() {
-  ghOwnerInput.value = localStorage.getItem("ghOwner") || "";
-  ghRepoInput.value = localStorage.getItem("ghRepo") || "";
-  ghBranchInput.value = localStorage.getItem("ghBranch") || "main";
-  ghTokenInput.value = localStorage.getItem("ghToken") || "";
+function loadImgurConfig() {
+  imgurClientIdInput.value = localStorage.getItem("imgurClientId") || "";
 }
 
-function saveGithubConfig() {
-  localStorage.setItem("ghOwner", ghOwnerInput.value);
-  localStorage.setItem("ghRepo", ghRepoInput.value);
-  localStorage.setItem("ghBranch", ghBranchInput.value);
-  localStorage.setItem("ghToken", ghTokenInput.value);
+function saveImgurConfig() {
+  localStorage.setItem("imgurClientId", imgurClientIdInput.value);
 }
 
 
@@ -108,32 +99,19 @@ function saveData() {
   }
 }
 
-async function githubRequest(method, path, body) {
-  const token = ghTokenInput.value.trim();
-  const owner = ghOwnerInput.value.trim();
-  const repo = ghRepoInput.value.trim();
-  const headers = {
-    'Authorization': `token ${token}`,
-    'Accept': 'application/vnd.github.v3+json'
-  };
-  if (body) headers['Content-Type'] = 'application/json';
-  const url = `https://api.github.com/repos/${owner}/${repo}/${path}`;
-  const res = await fetch(url, { method, headers, body: body ? JSON.stringify(body) : undefined });
+async function uploadImage(dataUrl) {
+  saveImgurConfig();
+  const clientId = imgurClientIdInput.value.trim();
+  const form = new FormData();
+  form.append('image', dataUrl.split(',')[1]);
+  const res = await fetch('https://api.imgur.com/3/image', {
+    method: 'POST',
+    headers: { 'Authorization': 'Client-ID ' + clientId },
+    body: form
+  });
   if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
-  return res.json();
-}
-
-async function uploadFile(filePath, contentBase64, message) {
-  saveGithubConfig();
-  let sha;
-  try {
-    const existing = await githubRequest('GET', `contents/${filePath}?ref=${ghBranchInput.value}`);
-    sha = existing.sha;
-  } catch (_) {}
-  const body = { message, content: contentBase64, branch: ghBranchInput.value };
-  if (sha) body.sha = sha;
-  const result = await githubRequest('PUT', `contents/${filePath}`, body);
-  return result.content.path;
+  const json = await res.json();
+  return json.data.link;
 }
 
 loginBtn.addEventListener('click', () => {
@@ -141,7 +119,7 @@ loginBtn.addEventListener('click', () => {
     localStorage.setItem('ychAdminAuthed', 'true');
     loginDiv.style.display = 'none';
     adminDiv.style.display = 'block';
-    loadGithubConfig();
+    loadImgurConfig();
     loadData();
   } else {
     alert('Incorrect password');
@@ -175,20 +153,15 @@ saveBtn.addEventListener("click", async () => {
     for (let i = 0; i < ychs.length; i++) {
       const item = ychs[i];
       if (/^data:/.test(item.image)) {
-        const ext = item.image.includes("image/png") ? "png" : "jpg";
-        const base64 = item.image.split(",")[1];
-        const name = `ych-${Date.now()}-${i}.${ext}`;
-        await uploadFile(`ych/${name}`, base64, `Add image ${name}`);
-        item.image = `ych/${name}`;
+        item.image = await uploadImage(item.image);
       }
     }
     const json = JSON.stringify(ychs, null, 2);
-    const b64 = btoa(unescape(encodeURIComponent(json)));
-    await uploadFile("ych/ychs.json", b64, "Update ychs.json via admin");
-    alert("Uploaded to GitHub");
+    console.log('Updated ychs.json:\n', json);
+    alert('Images uploaded to Imgur. Copy the JSON from the console and update ychs.json in your repo.');
   } catch (err) {
-    console.error("GitHub upload failed", err);
-    alert("Failed to upload to GitHub. Check console for details.");
+    console.error('Image upload failed', err);
+    alert('Failed to upload images. Check console for details.');
   }
   saveData();
   renderList();
@@ -203,7 +176,7 @@ document.addEventListener('click', evt => {
 });
 
 if (localStorage.getItem('ychAdminAuthed') === 'true') {
-  loadGithubConfig();
+  loadImgurConfig();
   loginDiv.style.display = 'none';
   adminDiv.style.display = 'block';
   loadData();
