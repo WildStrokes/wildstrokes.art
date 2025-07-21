@@ -62,6 +62,8 @@ function renderList() {
           const canvas = document.createElement('canvas');
           canvas.width = width;
           canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(imgObj, 0, 0, width, height);
           const dataUrl = canvas.toDataURL('image/png');
           ychs[idx].image = dataUrl;
           const textInput = ychList.querySelector(`input[data-idx="${idx}"][data-field="image"]`);
@@ -136,7 +138,7 @@ addBtn.addEventListener('click', () => {
 });
 
 saveBtn.addEventListener("click", async () => {
-  const inputs = document.querySelectorAll("[data-idx]");
+  const inputs = document.querySelectorAll("[data-idx][data-field]");
   inputs.forEach(input => {
     const idx = input.dataset.idx;
     const field = input.dataset.field;
