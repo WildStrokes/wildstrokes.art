@@ -1,8 +1,15 @@
 
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    const res = await fetch('ychs.json');
-    const ychs = await res.json();
+    let ychs;
+    const stored = localStorage.getItem('ychAdmin');
+    if (stored) {
+      try { ychs = JSON.parse(stored); } catch(e) { ychs = null; }
+    }
+    if (!ychs) {
+      const res = await fetch('ychs.json');
+      ychs = await res.json();
+    }
     const grid = document.querySelector('.ych-grid');
     if (!grid) return;
     ychs.forEach(item => {
@@ -41,4 +48,3 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.error('Failed to render YCHs:', err);
   }
 });
-
