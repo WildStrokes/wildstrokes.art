@@ -30,4 +30,4 @@ automatically resized to around 800px on the longest side before saving to help
 avoid hitting the browser's storage limits. If saving fails you'll get a
 warning in the admin interface.
 
-For permanent image storage the admin page supports Imgur uploads. Provide your Imgur **Client ID** and uploaded images will be sent to Imgur, returning a public URL. Update `ych/ychs.json` with these URLs to make them appear on the live site.
+For permanent image storage the admin page supports ImgBB uploads. Provide your ImgBB **API Key** and uploaded images will be sent to ImgBB, returning a public URL. Update `ych/ychs.json` with these URLs to make them appear on the live site.

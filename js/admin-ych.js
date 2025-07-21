@@ -9,14 +9,14 @@ const addBtn = document.getElementById('add-btn');
 const saveBtn = document.getElementById('save-btn');
 const ychList = document.getElementById('ych-list');
 
-const imgurClientIdInput = document.getElementById("imgur-client-id");
+const imgbbApiKeyInput = document.getElementById("imgbb-api-key");
 let ychs = [];
-function loadImgurConfig() {
-  imgurClientIdInput.value = localStorage.getItem("imgurClientId") || "";
+function loadImgbbConfig() {
+  imgbbApiKeyInput.value = localStorage.getItem("imgbbApiKey") || "";
 }
 
-function saveImgurConfig() {
-  localStorage.setItem("imgurClientId", imgurClientIdInput.value);
+function saveImgbbConfig() {
+  localStorage.setItem("imgbbApiKey", imgbbApiKeyInput.value);
 }
 
 
@@ -100,18 +100,17 @@ function saveData() {
 }
 
 async function uploadImage(dataUrl) {
-  saveImgurConfig();
-  const clientId = imgurClientIdInput.value.trim();
+  saveImgbbConfig();
+  const apiKey = imgbbApiKeyInput.value.trim();
   const form = new FormData();
   form.append('image', dataUrl.split(',')[1]);
-  const res = await fetch('https://api.imgur.com/3/image', {
+  const res = await fetch('https://api.imgbb.com/1/upload?key=' + apiKey, {
     method: 'POST',
-    headers: { 'Authorization': 'Client-ID ' + clientId },
     body: form
   });
   if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
   const json = await res.json();
-  return json.data.link;
+  return json.data.display_url;
 }
 
 loginBtn.addEventListener('click', () => {
@@ -119,7 +118,7 @@ loginBtn.addEventListener('click', () => {
     localStorage.setItem('ychAdminAuthed', 'true');
     loginDiv.style.display = 'none';
     adminDiv.style.display = 'block';
-    loadImgurConfig();
+    loadImgbbConfig();
     loadData();
   } else {
     alert('Incorrect password');
@@ -158,7 +157,7 @@ saveBtn.addEventListener("click", async () => {
     }
     const json = JSON.stringify(ychs, null, 2);
     console.log('Updated ychs.json:\n', json);
-    alert('Images uploaded to Imgur. Copy the JSON from the console and update ychs.json in your repo.');
+    alert('Images uploaded to ImgBB. Copy the JSON from the console and update ychs.json in your repo.');
   } catch (err) {
     console.error('Image upload failed', err);
     alert('Failed to upload images. Check console for details.');
@@ -176,7 +175,7 @@ document.addEventListener('click', evt => {
 });
 
 if (localStorage.getItem('ychAdminAuthed') === 'true') {
-  loadImgurConfig();
+  loadImgbbConfig();
   loginDiv.style.display = 'none';
   adminDiv.style.display = 'block';
   loadData();
