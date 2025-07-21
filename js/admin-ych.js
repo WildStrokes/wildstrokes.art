@@ -106,6 +106,7 @@ function saveData() {
     console.error('Failed to save data', err);
     alert('Failed to save. Local storage limit may have been exceeded.');
   }
+}
 
 async function githubRequest(method, path, body) {
   const token = ghTokenInput.value.trim();
