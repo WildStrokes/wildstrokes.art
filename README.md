@@ -17,9 +17,4 @@ Add new objects or edit the existing ones to change what appears on the YCH page
 
 ### Editing via Admin Page
 
-To update YCHs without using GitHub directly, open `ych/admin.html` in your
-browser. The page is protected by a simple password (edit `js/ych-admin.js` to
-change it). After entering the password you can modify the JSON in the textbox
-and click **Save**. You'll be prompted for a GitHub token so the page can commit
-the changes to this repository using the GitHub API. Update the repository name
-inside `js/ych-admin.js` if your fork uses a different path.
+To update YCHs without using GitHub directly, open `ych/admin.html` in your browser. The page is protected by a simple password (edit `js/ych-admin.js` to change it). After entering the password you can modify the JSON in the textbox and click **Save**. You'll be prompted for a GitHub token so the page can commit the changes to this repository using the GitHub API. Update the repository name inside `js/ych-admin.js` if your fork uses a different path.
