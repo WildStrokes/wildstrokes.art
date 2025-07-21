@@ -1,4 +1,20 @@
-const PASSWORD = 'artadmin';
+const PASSWORD_HASH = 'b2328a0f5a443e117ca152d1484913faec4df2200ec7ffc7e8939daab16a2455';
+
+async function hashString(str) {
+  const data = new TextEncoder().encode(str);
+  const digest = await crypto.subtle.digest('SHA-256', data);
+  return Array.from(new Uint8Array(digest)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+function escapeHtml(str) {
+  return String(str).replace(/[&<>"]|'/g, s => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  })[s]);
+}
 
 const loginDiv = document.getElementById('login');
 const adminDiv = document.getElementById('admin');
@@ -27,12 +43,12 @@ function renderList() {
     div.className = 'ych-card';
 
     div.innerHTML = `
-      <img data-idx="${idx}" src="${item.image}" style="max-width:100px;${item.image ? '' : 'display:none;'}"><br>
+      <img data-idx="${idx}" src="${escapeHtml(item.image)}" style="max-width:100px;${item.image ? '' : 'display:none;'}"><br>
       <input type="file" class="img-file" data-idx="${idx}" accept="image/*"><br>
-      <label>Image URL: <input data-idx="${idx}" data-field="image" value="${item.image}"></label><br>
-      <label>Title: <input data-idx="${idx}" data-field="title" value="${item.title}"></label><br>
+      <label>Image URL: <input data-idx="${idx}" data-field="image" value="${escapeHtml(item.image)}"></label><br>
+      <label>Title: <input data-idx="${idx}" data-field="title" value="${escapeHtml(item.title)}"></label><br>
       <label>USD: <input type="number" data-idx="${idx}" data-field="usd" value="${item.usd}"></label><br>
-      <label>Options (comma separated):<br><textarea data-idx="${idx}" data-field="options">${(item.options||[]).join(', ')}</textarea></label><br>
+      <label>Options (comma separated):<br><textarea data-idx="${idx}" data-field="options">${escapeHtml((item.options||[]).join(', '))}</textarea></label><br>
       <button data-idx="${idx}" class="delete-btn">Delete</button>
     `;
     ychList.appendChild(div);
@@ -87,12 +103,17 @@ function loadData() {
   }
   fetch('ychs.json')
     .then(res => res.json())
-    .then(data => { ychs = data; renderList(); })
+    .then(data => {
+      ychs = data;
+      ychs.forEach(item => delete item.undefined);
+      renderList();
+    })
     .catch(err => console.error('Failed to load ychs', err));
 }
 
 function saveData() {
   try {
+    ychs.forEach(item => delete item.undefined);
     localStorage.setItem('ychAdmin', JSON.stringify(ychs));
     alert('Saved to localStorage. Updates will appear on the YCH page.');
   } catch (err) {
@@ -115,8 +136,9 @@ async function uploadImage(dataUrl) {
   return json.data.display_url;
 }
 
-loginBtn.addEventListener('click', () => {
-  if (passInput.value === PASSWORD) {
+loginBtn.addEventListener('click', async () => {
+  const hash = await hashString(passInput.value);
+  if (hash === PASSWORD_HASH) {
     localStorage.setItem('ychAdminAuthed', 'true');
     loginDiv.style.display = 'none';
     adminDiv.style.display = 'block';

@@ -6,27 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="../style.css" />
   <script src="../js/age-gate.js" defer></script>
-
-  <script>
-    window.onload = function() {
-      if (localStorage.getItem("ageVerified") === "true") {
-        document.getElementById("content").style.display = "block";
-      } else {
-        var confirmed = confirm("This page contains adult content. Are you 18 years or older?");
-        if (confirmed) {
-          localStorage.setItem("ageVerified", "true");
-          document.getElementById("content").style.display = "block";
-        } else {
-          window.location.href = "https://google.com";
-        }
-      }
-    }
-
-    function clearVerification() {
-      localStorage.removeItem("ageVerified");
-      alert("Age verification cleared. You will be asked again next time.");
-      window.location.reload();
-    }
+  <script defer>
+    document.addEventListener('DOMContentLoaded', () => initAgeGate());
   </script>
 </head>
 <body>

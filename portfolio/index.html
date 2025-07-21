@@ -35,26 +35,9 @@
             background-color: #555;
         }
     </style>
-    <script>
-        window.onload = function() {
-            if (localStorage.getItem("ageVerified") === "true") {
-                document.getElementById("content").style.display = "block";
-            } else {
-                var confirmed = confirm("This portfolio contains adult content. Are you 18 years or older?");
-                if (confirmed) {
-                    localStorage.setItem("ageVerified", "true");
-                    document.getElementById("content").style.display = "block";
-                } else {
-                    window.location.href = "https://wildstrokes.art"; // or wherever you want
-                }
-            }
-        }
-
-        function clearVerification() {
-            localStorage.removeItem("ageVerified");
-            alert("Age verification cleared. You will be asked again next time.");
-            window.location.reload();
-        }
+    <script src="../js/age-gate.js" defer></script>
+    <script defer>
+        document.addEventListener('DOMContentLoaded', () => initAgeGate({ redirect: 'https://wildstrokes.art' }));
     </script>
 </head>
 <body>
