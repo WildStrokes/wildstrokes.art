@@ -7,8 +7,7 @@
       "+$10 — Change outfit",
       "+$10 — Change pose",
       "+$10 — Significant body type change"
-    ],
-    "undefined": ""
+    ]
   },
   {
     "image": "78f5b5c5-20f8-4fae-acec-0dd7335164bf.png",
@@ -18,8 +17,7 @@
       "Any gender",
       "Any color clothes",
       "Custom license plate"
-    ],
-    "undefined": ""
+    ]
   },
   {
     "image": "IMG_1147.jpeg",
@@ -27,8 +25,7 @@
     "usd": 45,
     "options": [
       "Flaccid male anatomy only"
-    ],
-    "undefined": ""
+    ]
   },
   {
     "image": "ych/ych-1753065981175-3.png",
@@ -36,7 +33,6 @@
     "usd": 0,
     "options": [
       "Hey girl"
-    ],
-    "undefined": ""
+    ]
   }
 ]
