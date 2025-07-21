@@ -18,13 +18,33 @@ function renderList() {
     div.className = 'ych-card';
 
     div.innerHTML = `
-      <label>Image: <input data-idx="${idx}" data-field="image" value="${item.image}"></label><br>
+      <img data-idx="${idx}" src="${item.image}" style="max-width:100px;${item.image ? '' : 'display:none;'}"><br>
+      <input type="file" class="img-file" data-idx="${idx}" accept="image/*"><br>
+      <label>Image URL: <input data-idx="${idx}" data-field="image" value="${item.image}"></label><br>
       <label>Title: <input data-idx="${idx}" data-field="title" value="${item.title}"></label><br>
       <label>USD: <input type="number" data-idx="${idx}" data-field="usd" value="${item.usd}"></label><br>
       <label>Options (comma separated):<br><textarea data-idx="${idx}" data-field="options">${(item.options||[]).join(', ')}</textarea></label><br>
       <button data-idx="${idx}" class="delete-btn">Delete</button>
     `;
     ychList.appendChild(div);
+  });
+
+  // file upload listeners
+  ychList.querySelectorAll('.img-file').forEach(input => {
+    input.addEventListener('change', evt => {
+      const file = evt.target.files[0];
+      if (!file) return;
+      const idx = evt.target.dataset.idx;
+      const reader = new FileReader();
+      reader.onload = e => {
+        ychs[idx].image = e.target.result;
+        const textInput = ychList.querySelector(`input[data-idx="${idx}"][data-field="image"]`);
+        if (textInput) textInput.value = e.target.result;
+        const img = ychList.querySelector(`img[data-idx="${idx}"]`);
+        if (img) { img.src = e.target.result; img.style.display = 'block'; }
+      };
+      reader.readAsDataURL(file);
+    });
   });
 }
 

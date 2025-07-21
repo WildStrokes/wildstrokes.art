@@ -23,3 +23,6 @@ them when `ych/index.html` is loaded.
 password `artadmin` to add, edit or remove YCH entries. Changes are stored in
 `localStorage` so they only affect your browser. They override `ychs.json` when
 rendering the normal YCH page.
+
+Uploaded images are converted to Data URLs and stored in `localStorage` as well,
+so they will only appear on the device you used to upload them.
