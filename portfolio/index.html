@@ -3,37 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>WildStrokes Portfolio (18+)</title>
+    <link rel="stylesheet" href="../style.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #7759af;
-            color: #eee;
-            text-align: center;
-            padding: 20px;
-        }
-        img {
-            width: 80%;
-            max-width: 600px;
-            margin: 20px 0;
-            border: 2px solid #555;
-            border-radius: 10px;
-        }
-        #content {
-            display: none; /* Hide portfolio until verified */
-        }
-        #clearButton {
-            margin-top: 50px;
-            font-size: 14px;
-            background-color: #333;
-            color: #ccc;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        #clearButton:hover {
-            background-color: #555;
-        }
+        #content { display: none; }
     </style>
     <script src="../js/age-gate.js" defer></script>
     <script defer>
@@ -41,23 +13,25 @@
     </script>
 </head>
 <body>
-    
-     <a href="https://wildstrokes.art" style="color: #ccc; text-decoration: none; font-size: 18px; display: block; margin-bottom: 20px;">← Back to Main Page</a>
+    <a class="button" href="https://wildstrokes.art">← Back to Main Page</a>
     <div id="content">
-        <h1>WildStrokes 18+ Art Portfolio</h1>
+        <header class="site-header">
+            <h1>WildStrokes 18+ Art Portfolio</h1>
+        </header>
 
-        <img src="../assets/IMG_1494.jpeg" alt="Artwork 1">
-        <img src="../assets/IMG_1495.jpeg" alt="Artwork 2">
-        <img src="../assets/IMG_1496.jpeg" alt="Artwork 3">
-        <img src="../assets/IMG_1497.jpeg" alt="Artwork 4">
-        <img src="../assets/IMG_1498.jpeg" alt="Artwork 5">
-        <img src="../assets/IMG_1499.jpeg" alt="Artwork 6">
-        <img src="../assets/IMG_1500.jpeg" alt="Artwork 7">
-        <img src="../assets/IMG_1501.jpeg" alt="Artwork 8">
-        <img src="../assets/IMG_1502.jpeg" alt="Artwork 9">
+        <div class="portfolio-gallery">
+            <img src="../assets/IMG_1494.jpeg" alt="Artwork 1">
+            <img src="../assets/IMG_1495.jpeg" alt="Artwork 2">
+            <img src="../assets/IMG_1496.jpeg" alt="Artwork 3">
+            <img src="../assets/IMG_1497.jpeg" alt="Artwork 4">
+            <img src="../assets/IMG_1498.jpeg" alt="Artwork 5">
+            <img src="../assets/IMG_1499.jpeg" alt="Artwork 6">
+            <img src="../assets/IMG_1500.jpeg" alt="Artwork 7">
+            <img src="../assets/IMG_1501.jpeg" alt="Artwork 8">
+            <img src="../assets/IMG_1502.jpeg" alt="Artwork 9">
+        </div>
 
-        <br><br>
-        <button id="clearButton" onclick="clearVerification()">Clear Age Verification</button>
+        <button class="button" id="clearButton" onclick="clearVerification()">Clear Age Verification</button>
     </div>
 </body>
 </html>

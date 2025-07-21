@@ -102,3 +102,35 @@ a.button {
 a.button:hover {
     background-color: #b3d9ff;
 }
+
+/* Portfolio gallery styling */
+.portfolio-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.portfolio-gallery img {
+    width: 80%;
+    max-width: 700px;
+    margin: 20px 0;
+    border: 2px solid #555;
+    border-radius: 10px;
+}
+
+button.button {
+    display: inline-block;
+    margin: 20px 10px;
+    padding: 12px 24px;
+    background-color: #cce5ff;
+    color: #333;
+    border: none;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button.button:hover {
+    background-color: #b3d9ff;
+}
