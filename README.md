@@ -19,15 +19,15 @@ them when `ych/index.html` is loaded.
 
 ### Admin page
 
-`ych/admin.html` provides a simple local admin interface. Log in with the
-password `artadmin` to add, edit or remove YCH entries. Changes are stored in
-`localStorage` so they only affect your browser. They override `ychs.json` when
-rendering the normal YCH page.
 
-Uploaded images are converted to Data URLs and stored in `localStorage` as well,
-so they will only appear on the device you used to upload them. Images are
-automatically resized to around 800px on the longest side before saving to help
-avoid hitting the browser's storage limits. If saving fails you'll get a
-warning in the admin interface.
+`ych/admin.html` provides a password protected admin interface. Log in with the
+password `artadmin` to add, edit or remove YCH entries.
 
-For permanent image storage the admin page supports ImgBB uploads. Provide your ImgBB **API Key** and uploaded images will be sent to ImgBB, returning a public URL. Update `ych/ychs.json` with these URLs to make them appear on the live site.
+The admin page automatically loads and saves `ychs.json` from a remote data
+store defined in `js/admin-ych.js`. Pressing **Save Changes** uploads any new
+images to ImgBB and then updates the JSON store so changes are visible from any
+device.
+
+Uploaded images are converted to Data URLs for preview and automatically
+resized to around 800px on the longest side before uploading. Provide your ImgBB
+**API Key** so the admin page can upload the images for you.

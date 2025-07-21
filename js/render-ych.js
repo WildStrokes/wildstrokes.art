@@ -1,11 +1,20 @@
 
+const DATA_URL = "https://api.jsonbin.io/v3/b/YOUR_BIN_ID";
+const DATA_API_KEY = "YOUR_API_KEY";
+
 document.addEventListener('DOMContentLoaded', async () => {
   try {
     let ychs;
-    const stored = localStorage.getItem('ychAdmin');
-    if (stored) {
-      try { ychs = JSON.parse(stored); } catch(e) { ychs = null; }
+    try {
+      const headers = { 'X-API-Key': DATA_API_KEY };
+      const res = await fetch(DATA_URL, { headers });
+      if (res.ok) {
+        ychs = await res.json();
+      }
+    } catch (err) {
+      console.error('Failed to fetch remote ychs', err);
     }
+
     if (!ychs) {
       const res = await fetch('ychs.json');
       ychs = await res.json();

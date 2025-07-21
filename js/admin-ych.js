@@ -26,6 +26,11 @@ const saveBtn = document.getElementById('save-btn');
 const ychList = document.getElementById('ych-list');
 
 const imgbbApiKeyInput = document.getElementById("imgbb-api-key");
+
+// Remote YCH JSON store
+// Replace with your own endpoint and API key
+const DATA_URL = "https://api.jsonbin.io/v3/b/YOUR_BIN_ID";
+const DATA_API_KEY = "YOUR_API_KEY";
 let ychs = [];
 function loadImgbbConfig() {
   imgbbApiKeyInput.value = localStorage.getItem("imgbbApiKey") || "";
@@ -34,6 +39,7 @@ function loadImgbbConfig() {
 function saveImgbbConfig() {
   localStorage.setItem("imgbbApiKey", imgbbApiKeyInput.value);
 }
+
 
 
 function renderList() {
@@ -94,13 +100,20 @@ function renderList() {
   });
 }
 
-function loadData() {
-  const stored = localStorage.getItem('ychAdmin');
-  if (stored) {
-    try { ychs = JSON.parse(stored); } catch(e) { ychs = []; }
-    renderList();
-    return;
+async function loadData() {
+  try {
+    const headers = { 'X-API-Key': DATA_API_KEY };
+    const res = await fetch(DATA_URL, { headers });
+    if (res.ok) {
+      ychs = await res.json();
+      ychs.forEach(item => delete item.undefined);
+      renderList();
+      return;
+    }
+  } catch (err) {
+    console.error('Failed to load remote ychs', err);
   }
+
   fetch('ychs.json')
     .then(res => res.json())
     .then(data => {
@@ -111,14 +124,17 @@ function loadData() {
     .catch(err => console.error('Failed to load ychs', err));
 }
 
-function saveData() {
+async function saveData() {
   try {
     ychs.forEach(item => delete item.undefined);
-    localStorage.setItem('ychAdmin', JSON.stringify(ychs));
-    alert('Saved to localStorage. Updates will appear on the YCH page.');
+    const json = JSON.stringify(ychs, null, 2);
+    const headers = { 'Content-Type': 'application/json', 'X-API-Key': DATA_API_KEY };
+    const res = await fetch(DATA_URL, { method: 'PUT', headers, body: json });
+    if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+    alert('Saved to remote data store.');
   } catch (err) {
     console.error('Failed to save data', err);
-    alert('Failed to save. Local storage limit may have been exceeded.');
+    alert('Failed to save data.');
   }
 }
 
@@ -165,7 +181,7 @@ saveBtn.addEventListener("click", async () => {
     const idx = input.dataset.idx;
     const field = input.dataset.field;
     if (field === "options") {
-      ychs[idx][field] = input.value.split(",").map(s => s.trim()).filter(s=>s);
+      ychs[idx][field] = input.value.split(",").map(s => s.trim()).filter(s => s);
     } else if (field === "usd") {
       ychs[idx][field] = Number(input.value);
     } else {
@@ -181,12 +197,12 @@ saveBtn.addEventListener("click", async () => {
     }
     const json = JSON.stringify(ychs, null, 2);
     console.log('Updated ychs.json:\n', json);
-    alert('Images uploaded to ImgBB. Copy the JSON from the console and update ychs.json in your repo.');
+    alert('Images uploaded to ImgBB. Data will be saved next.');
   } catch (err) {
     console.error('Image upload failed', err);
     alert('Failed to upload images. Check console for details.');
   }
-  saveData();
+  await saveData();
   renderList();
 });
 
