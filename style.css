@@ -23,6 +23,29 @@ body {
     color: #555;
 }
 
+
+/* Site-wide navigation */
+.site-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.site-nav a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #cce5ff;
+    color: #333;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+.site-nav a:hover {
+    background-color: #b3d9ff;
+}
+
 /* YCH grid – give the whole row breathing room */
 .ych-grid {
   display: flex;
