@@ -17,3 +17,6 @@ Add new objects or edit the existing ones to change what appears on the YCH page
 Images should live in the `ych/` folder and the site will automatically render
 them when `ych/index.html` is loaded.
 
+For quick edits, open `ych/editor.html` in your browser. It loads the current
+`ychs.json` and lets you download an updated copy to commit back to the repo.
+
