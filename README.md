@@ -25,5 +25,5 @@ password `artadmin` to add, edit or remove YCH entries.
 
 The admin page automatically loads and saves `ychs.json` from the endpoint
 defined in `js/admin-ych.js`. Press **Save Changes** to update the JSON store
-with any edits. Images selected via the file input are converted to Data URLs
-for preview before saving.
+with any edits. Provide an image URL for each entry and the preview will update
+as you type.

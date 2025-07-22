@@ -41,7 +41,6 @@ function renderList() {
 
     div.innerHTML = `
       <img data-idx="${idx}" src="${escapeHtml(item.image)}" style="max-width:100px;${item.image ? '' : 'display:none;'}"><br>
-      <input type="file" class="img-file" data-idx="${idx}" accept="image/*"><br>
       <label>Image URL: <input data-idx="${idx}" data-field="image" value="${escapeHtml(item.image)}"></label><br>
       <label>Title: <input data-idx="${idx}" data-field="title" value="${escapeHtml(item.title)}"></label><br>
       <label>USD: <input type="number" data-idx="${idx}" data-field="usd" value="${item.usd}"></label><br>
@@ -51,42 +50,16 @@ function renderList() {
     ychList.appendChild(div);
   });
 
-  // file upload listeners
-  ychList.querySelectorAll('.img-file').forEach(input => {
-    input.addEventListener('change', evt => {
-      const file = evt.target.files[0];
-      if (!file) return;
+  // update image preview when URL changes
+  ychList.querySelectorAll('input[data-field="image"]').forEach(input => {
+    input.addEventListener('input', evt => {
       const idx = evt.target.dataset.idx;
-      const reader = new FileReader();
-      reader.onload = e => {
-        const imgObj = new Image();
-        imgObj.onload = () => {
-          const MAX = 800;
-          let { width, height } = imgObj;
-          if (width > MAX || height > MAX) {
-            if (width > height) {
-              height = height * (MAX / width);
-              width = MAX;
-            } else {
-              width = width * (MAX / height);
-              height = MAX;
-            }
-          }
-          const canvas = document.createElement('canvas');
-          canvas.width = width;
-          canvas.height = height;
-          const ctx = canvas.getContext('2d');
-          ctx.drawImage(imgObj, 0, 0, width, height);
-          const dataUrl = canvas.toDataURL('image/png');
-          ychs[idx].image = dataUrl;
-          const textInput = ychList.querySelector(`input[data-idx="${idx}"][data-field="image"]`);
-          if (textInput) textInput.value = dataUrl;
-          const img = ychList.querySelector(`img[data-idx="${idx}"]`);
-          if (img) { img.src = dataUrl; img.style.display = 'block'; }
-        };
-        imgObj.src = e.target.result;
-      };
-      reader.readAsDataURL(file);
+      const url = evt.target.value;
+      const img = ychList.querySelector(`img[data-idx="${idx}"]`);
+      if (img) {
+        img.src = url;
+        img.style.display = url ? 'block' : 'none';
+      }
     });
   });
 }
