@@ -23,7 +23,9 @@ them when `ych/index.html` is loaded.
 `ych/admin.html` provides a password protected admin interface. Log in with the
 password `artadmin` to add, edit or remove YCH entries.
 
-The admin page automatically loads and saves `ychs.json` from the endpoint
-defined in `js/admin-ych.js`. Press **Save Changes** to update the JSON store
-with any edits. Provide an image URL for each entry and the preview will update
-as you type.
+The site now includes a small Node.js backend (`server.js`) that exposes
+`/api/ychs` for reading and writing `ych/ychs.json`. Run `npm install` followed
+by `npm start` to launch the server locally. The admin page will send updates to
+this endpoint so you can modify the JSON file without setting up an external
+API key. Provide an image URL for each entry and the preview will update as you
+type.

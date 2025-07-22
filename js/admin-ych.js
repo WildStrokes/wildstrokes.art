@@ -25,10 +25,10 @@ const addBtn = document.getElementById('add-btn');
 const saveBtn = document.getElementById('save-btn');
 const ychList = document.getElementById('ych-list');
 
-// Remote YCH JSON store
-// Replace with your own endpoint and API key
-const DATA_URL = "https://api.jsonbin.io/v3/b/YOUR_BIN_ID";
-const DATA_API_KEY = "YOUR_API_KEY";
+// Local backend API for YCH JSON
+// server.js exposes /api/ychs for loading and saving the file
+const DATA_URL = "/api/ychs";
+const ADMIN_HASH_HEADER = "X-Admin-Hash";
 let ychs = [];
 
 
@@ -66,8 +66,7 @@ function renderList() {
 
 async function loadData() {
   try {
-    const headers = { 'X-API-Key': DATA_API_KEY };
-    const res = await fetch(DATA_URL, { headers });
+    const res = await fetch(DATA_URL);
     if (res.ok) {
       ychs = await res.json();
       ychs.forEach(item => delete item.undefined);
@@ -92,10 +91,10 @@ async function saveData() {
   try {
     ychs.forEach(item => delete item.undefined);
     const json = JSON.stringify(ychs, null, 2);
-    const headers = { 'Content-Type': 'application/json', 'X-API-Key': DATA_API_KEY };
+    const headers = { 'Content-Type': 'application/json', [ADMIN_HASH_HEADER]: PASSWORD_HASH };
     const res = await fetch(DATA_URL, { method: 'PUT', headers, body: json });
     if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
-    alert('Saved to remote data store.');
+    alert('Saved.');
   } catch (err) {
     console.error('Failed to save data', err);
     alert('Failed to save data.');
