@@ -20,6 +20,7 @@ them when `ych/index.html` is loaded.
 For quick edits, open `ych/editor.html` in your browser. It now shows each YCH
 in a small form so you can easily change the image path, title, price and
 options. Use the **Add YCH** button to insert new entries or the **Remove**
-button to delete them. When you're done, click **Download JSON** and commit the
+button to delete them. Up and Down buttons let you reorder the YCHs.
+When you're done, click **Download JSON** and commit the
 file back to the repo.
 
