@@ -49,7 +49,29 @@ function addItem(item = { image: '', title: '', usd: '', options: [] }) {
   remove.className = 'button';
   remove.addEventListener('click', () => div.remove());
 
-  div.append(img.wrapper, title.wrapper, price.wrapper, opts.wrapper, remove);
+  const up = document.createElement('button');
+  up.textContent = 'Up';
+  up.className = 'button';
+  up.addEventListener('click', () => {
+    if (div.previousElementSibling) {
+      container.insertBefore(div, div.previousElementSibling);
+    }
+  });
+
+  const down = document.createElement('button');
+  down.textContent = 'Down';
+  down.className = 'button';
+  down.addEventListener('click', () => {
+    if (div.nextElementSibling) {
+      container.insertBefore(div.nextElementSibling, div);
+    }
+  });
+
+  const controls = document.createElement('div');
+  controls.className = 'ych-edit-controls';
+  controls.append(up, down, remove);
+
+  div.append(img.wrapper, title.wrapper, price.wrapper, opts.wrapper, controls);
   container.appendChild(div);
 }
 

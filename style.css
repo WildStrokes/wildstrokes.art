@@ -180,3 +180,11 @@ button.button:hover {
     margin-top: 4px;
     margin-bottom: 12px;
 }
+
+.ych-edit-controls {
+    margin-top: 10px;
+}
+
+.ych-edit-controls .button {
+    margin-right: 10px;
+}
