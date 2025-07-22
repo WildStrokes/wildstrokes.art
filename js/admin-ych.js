@@ -25,20 +25,11 @@ const addBtn = document.getElementById('add-btn');
 const saveBtn = document.getElementById('save-btn');
 const ychList = document.getElementById('ych-list');
 
-const imgbbApiKeyInput = document.getElementById("imgbb-api-key");
-
 // Remote YCH JSON store
 // Replace with your own endpoint and API key
 const DATA_URL = "https://api.jsonbin.io/v3/b/YOUR_BIN_ID";
 const DATA_API_KEY = "YOUR_API_KEY";
 let ychs = [];
-function loadImgbbConfig() {
-  imgbbApiKeyInput.value = localStorage.getItem("imgbbApiKey") || "";
-}
-
-function saveImgbbConfig() {
-  localStorage.setItem("imgbbApiKey", imgbbApiKeyInput.value);
-}
 
 
 
@@ -138,19 +129,6 @@ async function saveData() {
   }
 }
 
-async function uploadImage(dataUrl) {
-  saveImgbbConfig();
-  const apiKey = imgbbApiKeyInput.value.trim();
-  const form = new FormData();
-  form.append('image', dataUrl.split(',')[1]);
-  const res = await fetch('https://api.imgbb.com/1/upload?key=' + apiKey, {
-    method: 'POST',
-    body: form
-  });
-  if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
-  const json = await res.json();
-  return json.data.display_url;
-}
 
 loginBtn.addEventListener('click', async () => {
   const hash = await hashString(passInput.value);
@@ -158,7 +136,6 @@ loginBtn.addEventListener('click', async () => {
     localStorage.setItem('ychAdminAuthed', 'true');
     loginDiv.style.display = 'none';
     adminDiv.style.display = 'block';
-    loadImgbbConfig();
     loadData();
   } else {
     alert('Incorrect password');
@@ -188,21 +165,11 @@ saveBtn.addEventListener("click", async () => {
       ychs[idx][field] = input.value;
     }
   });
-  try {
-    for (let i = 0; i < ychs.length; i++) {
-      const item = ychs[i];
-      if (/^data:/.test(item.image)) {
-        item.image = await uploadImage(item.image);
-      }
-    }
-    const json = JSON.stringify(ychs, null, 2);
-    console.log('Updated ychs.json:\n', json);
-    alert('Images uploaded to ImgBB. Data will be saved next.');
-  } catch (err) {
-    console.error('Image upload failed', err);
-    alert('Failed to upload images. Check console for details.');
-  }
+
+  const json = JSON.stringify(ychs, null, 2);
+  console.log('Updated ychs.json:\n', json);
   await saveData();
+  alert('Changes saved.');
   renderList();
 });
 
@@ -215,7 +182,6 @@ document.addEventListener('click', evt => {
 });
 
 if (localStorage.getItem('ychAdminAuthed') === 'true') {
-  loadImgbbConfig();
   loginDiv.style.display = 'none';
   adminDiv.style.display = 'block';
   loadData();
