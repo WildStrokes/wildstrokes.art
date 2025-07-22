@@ -158,3 +158,25 @@ button.button {
 button.button:hover {
     background-color: #b3d9ff;
 }
+
+/* YCH editor */
+.ych-edit-item {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #e6d6eb;
+    border-radius: 8px;
+    background-color: #fdf8ff;
+}
+
+.ych-edit-item label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.ych-edit-item input,
+.ych-edit-item textarea {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 4px;
+    margin-bottom: 12px;
+}
