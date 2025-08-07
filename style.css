@@ -1,11 +1,17 @@
 /* Global styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
     background-color: #faf6ff; /* light pastel background */
     color: #333;
     text-align: center;
     margin: 0;
     padding: 20px;
+}
+
+#content {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 /* Header */
@@ -31,20 +37,25 @@ body {
     flex-wrap: wrap;
     gap: 15px;
     margin-bottom: 20px;
+    background-color: #fff;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .site-nav a {
     display: inline-block;
-    padding: 10px 20px;
-    background-color: #cce5ff;
+    padding: 8px 12px;
     color: #333;
     text-decoration: none;
-    border-radius: 10px;
-    transition: background-color 0.3s;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .site-nav a:hover {
-    background-color: #b3d9ff;
+    background-color: #cce5ff;
 }
 
 /* YCH grid – give the whole row breathing room */
@@ -187,4 +198,20 @@ button.button:hover {
 
 .ych-edit-controls .button {
     margin-right: 10px;
+}
+
+/* Footer */
+.site-footer {
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* Misc */
+.feature-image {
+    width: 80%;
+    max-width: 700px;
+    margin: 30px 0;
+    border: 2px solid #555;
+    border-radius: 10px;
 }
