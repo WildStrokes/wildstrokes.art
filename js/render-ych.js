@@ -28,6 +28,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       const img = document.createElement('img');
       img.src = item.image;
       img.alt = `${item.title} YCH`;
+      img.loading = 'lazy';
+      img.addEventListener('click', () => openLightbox(img.src, img.alt));
       fig.appendChild(img);
 
       const cap = document.createElement('figcaption');
