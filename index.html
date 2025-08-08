@@ -4,21 +4,26 @@
    <meta charset="UTF-8">
    <title>WildStrokes (18+)</title>
    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="/style.css">
-    <style>#content { display: none; }</style>
-    <script src="/js/age-gate.js" defer></script>
-    <script defer>
+   <meta name="description" content="WildStrokes features adult furry artwork and commission YCH slots." />
+   <meta property="og:title" content="WildStrokes" />
+   <meta property="og:description" content="Adult furry artwork and YCH commissions." />
+   <meta property="og:type" content="website" />
+   <meta property="og:url" content="https://wildstrokes.art/" />
+   <meta property="og:image" content="https://wildstrokes.art/assets/c302bf84-6868-403c-8c0a-5e410fad1dae.png" />
+   <meta name="twitter:card" content="summary_large_image" />
+   <meta name="twitter:title" content="WildStrokes" />
+   <meta name="twitter:description" content="Adult furry artwork and YCH commissions." />
+   <meta name="twitter:image" content="https://wildstrokes.art/assets/c302bf84-6868-403c-8c0a-5e410fad1dae.png" />
+   <link rel="stylesheet" href="/style.css">
+   <style>#content { display: none; }</style>
+   <script src="/js/age-gate.js" defer></script>
+   <script src="/js/nav.js" defer></script>
+   <script defer>
       document.addEventListener('DOMContentLoaded', () => initAgeGate());
-    </script>
+   </script>
 </head>
 <body>
-    <nav class="site-nav">
-        <a href="/">Home</a>
-        <a href="/portfolio">Portfolio</a>
-        <a href="/ych">YCH</a>
-        <a href="https://ko-fi.com/wildstrokes" target="_blank">Kofi</a>
-        <a href="https://bsky.app/profile/wildstrokes.art" target="_blank">Bluesky</a>
-    </nav>
+    <div id="nav-placeholder"></div>
     <div id="content">
         <h1>Welcome to WildStrokes</h1>
 
@@ -30,7 +35,7 @@
 
         <a class="button" href="https://bsky.app/profile/wildstrokes.art" target="_blank">@wildstrokes.art</a>
 
-        <img src="/assets/c302bf84-6868-403c-8c0a-5e410fad1dae.png" alt="WildStrokes Comic" class="feature-image">
+        <img src="/assets/c302bf84-6868-403c-8c0a-5e410fad1dae.png" alt="WildStrokes Comic" class="feature-image" loading="lazy">
 
         <button id="clearButton" onclick="clearAgeVerification()">Clear Age Verification</button>
 

@@ -6,15 +6,28 @@ function initAgeGate(opts = {}) {
   const show = () => { if (content) content.style.display = 'block'; };
   if (localStorage.getItem('ageVerified') === 'true') {
     show();
-  } else {
-    const confirmed = confirm(msg);
-    if (confirmed) {
-      localStorage.setItem('ageVerified', 'true');
-      show();
-    } else {
-      window.location.href = redirect;
-    }
+    return;
   }
+
+  const overlay = document.createElement('div');
+  overlay.className = 'age-gate-overlay';
+  overlay.innerHTML = `
+    <div class="age-gate-dialog">
+      <p>${msg}</p>
+      <button id="age-yes">Yes</button>
+      <button id="age-no">No</button>
+    </div>`;
+  document.body.appendChild(overlay);
+
+  document.getElementById('age-yes').addEventListener('click', () => {
+    localStorage.setItem('ageVerified', 'true');
+    overlay.remove();
+    show();
+  });
+
+  document.getElementById('age-no').addEventListener('click', () => {
+    window.location.href = redirect;
+  });
 }
 
 function clearAgeVerification() {
