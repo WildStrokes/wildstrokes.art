@@ -4,23 +4,28 @@
     <meta charset="UTF-8">
     <title>WildStrokes Portfolio (18+)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="View the adult art portfolio of WildStrokes." />
+    <meta property="og:title" content="WildStrokes Portfolio" />
+    <meta property="og:description" content="View the adult art portfolio of WildStrokes." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://wildstrokes.art/portfolio/" />
+    <meta property="og:image" content="https://wildstrokes.art/assets/c302bf84-6868-403c-8c0a-5e410fad1dae.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="WildStrokes Portfolio" />
+    <meta name="twitter:description" content="View the adult art portfolio of WildStrokes." />
+    <meta name="twitter:image" content="https://wildstrokes.art/assets/c302bf84-6868-403c-8c0a-5e410fad1dae.png" />
     <link rel="stylesheet" href="../style.css">
     <style>
         #content { display: none; }
     </style>
     <script src="../js/age-gate.js" defer></script>
+    <script src="/js/nav.js" defer></script>
     <script defer>
         document.addEventListener('DOMContentLoaded', () => initAgeGate({ redirect: 'https://wildstrokes.art' }));
     </script>
 </head>
 <body>
-    <nav class="site-nav">
-        <a href="/">Home</a>
-        <a href="/portfolio">Portfolio</a>
-        <a href="/ych">YCH</a>
-        <a href="https://ko-fi.com/wildstrokes" target="_blank">Kofi</a>
-        <a href="https://bsky.app/profile/wildstrokes.art" target="_blank">Bluesky</a>
-    </nav>
+    <div id="nav-placeholder"></div>
     <a class="button" href="https://wildstrokes.art">← Back to Main Page</a>
     <div id="content">
         <header class="site-header">
@@ -28,15 +33,15 @@
         </header>
 
         <div class="portfolio-gallery">
-            <img src="../assets/IMG_1494.jpeg" alt="Artwork 1">
-            <img src="../assets/IMG_1495.jpeg" alt="Artwork 2">
-            <img src="../assets/IMG_1496.jpeg" alt="Artwork 3">
-            <img src="../assets/IMG_1497.jpeg" alt="Artwork 4">
-            <img src="../assets/IMG_1498.jpeg" alt="Artwork 5">
-            <img src="../assets/IMG_1499.jpeg" alt="Artwork 6">
-            <img src="../assets/IMG_1500.jpeg" alt="Artwork 7">
-            <img src="../assets/IMG_1501.jpeg" alt="Artwork 8">
-            <img src="../assets/IMG_1502.jpeg" alt="Artwork 9">
+            <img src="../assets/IMG_1494.jpeg" alt="Artwork 1" loading="lazy">
+            <img src="../assets/IMG_1495.jpeg" alt="Artwork 2" loading="lazy">
+            <img src="../assets/IMG_1496.jpeg" alt="Artwork 3" loading="lazy">
+            <img src="../assets/IMG_1497.jpeg" alt="Artwork 4" loading="lazy">
+            <img src="../assets/IMG_1498.jpeg" alt="Artwork 5" loading="lazy">
+            <img src="../assets/IMG_1499.jpeg" alt="Artwork 6" loading="lazy">
+            <img src="../assets/IMG_1500.jpeg" alt="Artwork 7" loading="lazy">
+            <img src="../assets/IMG_1501.jpeg" alt="Artwork 8" loading="lazy">
+            <img src="../assets/IMG_1502.jpeg" alt="Artwork 9" loading="lazy">
         </div>
 
         <button class="button" id="clearButton" onclick="clearAgeVerification()">Clear Age Verification</button>

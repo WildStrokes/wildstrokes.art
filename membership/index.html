@@ -4,16 +4,26 @@
   <meta charset="UTF-8" />
   <title>Membership | WildStrokes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Join the WildStrokes membership for exclusive previews and perks." />
+  <meta property="og:title" content="Membership | WildStrokes" />
+  <meta property="og:description" content="Join the WildStrokes membership for exclusive previews and perks." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://wildstrokes.art/membership/" />
+  <meta property="og:image" content="https://wildstrokes.art/assets/c302bf84-6868-403c-8c0a-5e410fad1dae.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Membership | WildStrokes" />
+  <meta name="twitter:description" content="Join the WildStrokes membership for exclusive previews and perks." />
+  <meta name="twitter:image" content="https://wildstrokes.art/assets/c302bf84-6868-403c-8c0a-5e410fad1dae.png" />
   <link rel="stylesheet" href="../style.css" />
+  <style>#content { display: none; }</style>
+  <script src="../js/age-gate.js" defer></script>
+  <script src="/js/nav.js" defer></script>
+  <script defer>
+    document.addEventListener('DOMContentLoaded', () => initAgeGate());
+  </script>
 </head>
 <body>
-  <nav class="site-nav">
-    <a href="/">Home</a>
-    <a href="/portfolio">Portfolio</a>
-    <a href="/ych">YCH</a>
-    <a href="https://ko-fi.com/wildstrokes" target="_blank">Kofi</a>
-    <a href="https://bsky.app/profile/wildstrokes.art" target="_blank">Bluesky</a>
-  </nav>
+  <div id="nav-placeholder"></div>
 
   <div id="content">
     <header class="site-header">
@@ -33,6 +43,8 @@
       <p>Become a member to support my work and get insider access.</p>
       <div id="paypal-button-container-P-0F008842126119604NA2MVAA"></div>
     </section>
+    <button id="clearButton" onclick="clearAgeVerification()">Clear Age Verification</button>
+    <footer class="site-footer">© 2024 WildStrokes. All rights reserved.</footer>
   </div>
 
   <script src="https://www.paypal.com/sdk/js?client-id=AQRhOvnkPsVu6kZ5_EMMY0RPYrzQ5ivhELN917zpJsNDwELxf7PS21mbZ30igS-WL9yfpPHP6ueDyJPp&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
