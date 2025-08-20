@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Piss Plaza Zine | WildStrokes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Landing page for the Piss Plaza zine." />
+  <meta property="og:title" content="Piss Plaza Zine | WildStrokes" />
+  <meta property="og:description" content="Landing page for the Piss Plaza zine." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://wildstrokes.art/zine/" />
+  <meta property="og:image" content="https://via.placeholder.com/800x1000?text=Piss+Plaza+Cover" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Piss Plaza Zine | WildStrokes" />
+  <meta name="twitter:description" content="Landing page for the Piss Plaza zine." />
+  <meta name="twitter:image" content="https://via.placeholder.com/800x1000?text=Piss+Plaza+Cover" />
+  <link rel="stylesheet" href="../style.css" />
+  <style>#content { display: none; }</style>
+  <script src="../js/age-gate.js" defer></script>
+  <script src="/js/nav.js" defer></script>
+  <script defer>
+    document.addEventListener('DOMContentLoaded', () => initAgeGate());
+  </script>
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+  <div id="content">
+    <header class="site-header">
+      <h1>Piss Plaza Zine</h1>
+    </header>
+
+    <img src="https://via.placeholder.com/800x1000?text=Piss+Plaza+Cover" alt="Piss Plaza Zine cover" class="feature-image" loading="lazy" />
+
+    <p>Get your copy of <em>Piss Plaza</em>! Choose between the physical edition or a digital download.</p>
+
+    <a id="physical-link" class="button" href="https://maxim.example.com/piss-plaza">Buy Physical – $15</a>
+    <a id="digital-link" class="button" href="https://example.com/digital-store">Buy Digital – $10</a>
+
+    <button id="clearButton" onclick="clearAgeVerification()">Clear Age Verification</button>
+    <footer class="site-footer">© 2024 WildStrokes. All rights reserved.</footer>
+  </div>
+
+  <script>
+    const query = window.location.search;
+    if (query) {
+      const physical = document.getElementById('physical-link');
+      const digital = document.getElementById('digital-link');
+      physical.href += query;
+      digital.href += query;
+    }
+  </script>
+</body>
+</html>
