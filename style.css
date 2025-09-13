@@ -21,7 +21,13 @@ body {
     padding: 10px;
     font-weight: bold;
     text-align: center;
-    width: 100%;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-bottom: 20px;
 }
 
 /* Header */

@@ -92,10 +92,15 @@
       const now = new Date();
       const daysUntilNextSunday = ((7 - now.getDay()) % 7) || 7;
       const end = new Date(now);
-      end.setDate(now.getDate() + daysUntilNextSunday);
+      end.setDate(now.getDate() + daysUntilNextSunday + 7); // one week from next Sunday
       end.setHours(23, 59, 59, 999);
       return end;
     })();
+
+    function pluralize(value, unit) {
+      return `${value} ${unit}${value === 1 ? '' : 's'}`;
+    }
+
     function updateSaleBanner() {
       const now = new Date();
       const diff = saleEnd - now;
@@ -106,8 +111,19 @@
       }
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      saleBanner.textContent = `Sale ends in ${days} days and ${hours} hours`;
+
+      let message = 'Sale ends in ';
+      if (days > 0) {
+        message += pluralize(days, 'day');
+        if (hours > 0) {
+          message += ` and ${pluralize(hours, 'hour')}`;
+        }
+      } else {
+        message += pluralize(hours, 'hour');
+      }
+      saleBanner.textContent = message;
     }
+
     updateSaleBanner();
     const intervalId = setInterval(updateSaleBanner, 60 * 60 * 1000);
   </script>
