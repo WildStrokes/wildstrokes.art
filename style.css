@@ -16,10 +16,12 @@ body {
 
 /* Sale banner */
 .sale-banner {
-    background-color: #fff3cd;
-    color: #333;
+    background-color: #4b0082;
+    color: #fff;
     padding: 10px;
     font-weight: bold;
+    text-align: center;
+    width: 100%;
 }
 
 /* Header */
