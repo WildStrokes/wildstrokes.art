@@ -14,6 +14,14 @@ body {
     margin: 0 auto;
 }
 
+/* Sale banner */
+.sale-banner {
+    background-color: #fff3cd;
+    color: #333;
+    padding: 10px;
+    font-weight: bold;
+}
+
 /* Header */
 .site-header {
     margin-bottom: 40px;
