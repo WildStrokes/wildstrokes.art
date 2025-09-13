@@ -256,23 +256,3 @@ button.button:hover {
     max-height: 90%;
     border-radius: 8px;
 }
-
-/* Hero */
-.hero { max-width: 720px; margin: 0 auto 24px; padding: 0 16px; }
-.hero h1 { margin: 0 0 8px; }
-.subhead { margin: 0 0 12px; font-size: 1.1rem; line-height: 1.5; }
-.hero-bullets { display: flex; flex-wrap: wrap; gap: 12px 20px; padding: 0; margin: 0 0 8px; list-style: none; }
-.hero-bullets li { white-space: nowrap; }
-
-/* CTAs */
-.cta-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 720px; margin: 12px auto 6px; padding: 0 16px; }
-.btn { display: inline-block; text-align: center; padding: 12px 16px; border-radius: 6px; text-decoration: none; border: 2px solid currentColor; min-height: 44px; }
-.btn-primary { color: #fff; background: #000; }
-.btn-secondary { background: transparent; }
-.cta-note { max-width: 720px; margin: 6px auto 16px; padding: 0 16px; font-size: .95rem; opacity: .85; }
-
-@media (max-width: 640px) {
-    .subhead { font-size: 1rem; }
-    .hero-bullets { gap: 8px 14px; }
-    .cta-row { grid-template-columns: 1fr; }
-}
