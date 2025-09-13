@@ -33,8 +33,8 @@
 </head>
 <body>
   <div id="nav-placeholder"></div>
+  <div id="sale-banner" class="sale-banner"></div>
   <div id="content">
-    <div id="sale-banner" class="sale-banner"></div>
       <section class="hero">
         <h1>Piss Plaza Zine</h1>
         <p class="subhead">A 24-page NSFW furry watersports zine set in an abandoned mall.</p>
@@ -87,8 +87,15 @@
     }
   </script>
   <script>
-    const saleEnd = new Date('2024-09-21T23:59:59-05:00');
     const saleBanner = document.getElementById('sale-banner');
+    const saleEnd = (() => {
+      const now = new Date();
+      const daysUntilNextSunday = ((7 - now.getDay()) % 7) || 7;
+      const end = new Date(now);
+      end.setDate(now.getDate() + daysUntilNextSunday);
+      end.setHours(23, 59, 59, 999);
+      return end;
+    })();
     function updateSaleBanner() {
       const now = new Date();
       const diff = saleEnd - now;
