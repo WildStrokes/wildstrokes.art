@@ -4,16 +4,16 @@
   <meta charset="UTF-8" />
   <title>Piss Plaza Zine | WildStrokes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Landing page for the Piss Plaza zine." />
+  <meta name="description" content="Ten short stories with illustrations about anthros pissing in an abandoned mall." />
   <meta property="og:title" content="Piss Plaza Zine | WildStrokes" />
-  <meta property="og:description" content="Landing page for the Piss Plaza zine." />
+  <meta property="og:description" content="Ten short stories with illustrations about anthros pissing in an abandoned mall." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://wildstrokes.art/zine/" />
-  <meta property="og:image" content="https://via.placeholder.com/800x1000?text=Piss+Plaza+Cover" />
+  <meta property="og:image" content="https://wildstrokes.art/zine/PissPlazaCover.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Piss Plaza Zine | WildStrokes" />
-  <meta name="twitter:description" content="Landing page for the Piss Plaza zine." />
-  <meta name="twitter:image" content="https://via.placeholder.com/800x1000?text=Piss+Plaza+Cover" />
+  <meta name="twitter:description" content="Ten short stories with illustrations about anthros pissing in an abandoned mall." />
+  <meta name="twitter:image" content="https://wildstrokes.art/zine/PissPlazaCover.jpg" />
   <link rel="stylesheet" href="../style.css" />
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CNSS235NES"></script>
@@ -38,12 +38,32 @@
       <h1>Piss Plaza Zine</h1>
     </header>
 
-    <img src="https://via.placeholder.com/800x1000?text=Piss+Plaza+Cover" alt="Piss Plaza Zine cover" class="feature-image" loading="lazy" />
+    <img src="/zine/PissPlazaCover.jpg" alt="Piss Plaza zine cover by WildStrokes." class="feature-image" loading="lazy" />
 
-    <p>Get your copy of <em>Piss Plaza</em>! Choose between the physical edition or a digital download.</p>
+    <p><strong>18+ NSFW. Contains kink content (watersports).</strong></p>
 
-    <a id="physical-link" class="button" href="https://maxim.example.com/piss-plaza">Buy Physical – $15</a>
-    <a id="digital-link" class="button" href="https://example.com/digital-store">Buy Digital – $10</a>
+    <p>This zine is a weird little experiment: ten short stories, each paired with an illustration, all circling one simple but specific idea: anthros pissing in an abandoned mall. It’s unapologetically niche, unashamedly NSFW, and made for the piss/furry community. It’s not trying to be big or broad; this is for the people who get it, who like seeing kink explored in strange, offbeat ways. If that’s you, you’re home. If not, no worries. This project isn’t for everyone, and that’s the point.</p>
+
+    <div>
+      <a id="physical-link" class="button" href="https://mixam.com/print-on-demand/68c096b877b4144e89f697e6">Buy Physical – $15 (launch price)</a>
+      <p>Launch price ends Sunday, September 21, 2025. Regular price $20.<br />Printed via Mixam. Shipping shown at checkout.</p>
+    </div>
+
+    <section>
+      <h2>Get the digital version</h2>
+      <p>Digital is included with my Splash Zone membership on Ko-fi ($5/month). Requires Telegram. After you join, open the members-only Telegram channel to view/download the zine (pinned there).</p>
+      <ol>
+        <li>Join Splash Zone on Ko-fi.</li>
+        <li>In Ko-fi, open the members-only post with the Telegram invite link.</li>
+        <li>Join the channel and access the zine there.</li>
+      </ol>
+      <p><a href="https://ko-fi.com/wildstrokes/tiers">Join Splash Zone on Ko-fi →</a></p>
+      <p><small>Format: PDF, 24 pages. Personal use only.</small></p>
+    </section>
+
+    <img src="/zine/PissPlazaPreview.jpg" alt="Piss Plaza — first page preview." class="feature-image" loading="lazy" />
+
+    <p>Questions? Email <a href="mailto:Cleo@wildstrokes.art">Cleo@wildstrokes.art</a></p>
 
     <button id="clearButton" onclick="clearAgeVerification()">Clear Age Verification</button>
     <footer class="site-footer">© 2024 WildStrokes. All rights reserved.</footer>
@@ -53,9 +73,9 @@
     const query = window.location.search;
     if (query) {
       const physical = document.getElementById('physical-link');
-      const digital = document.getElementById('digital-link');
-      physical.href += query;
-      digital.href += query;
+      if (physical) {
+        physical.href += query;
+      }
     }
   </script>
 </body>
