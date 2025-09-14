@@ -87,14 +87,7 @@
   </script>
   <script>
     const saleBanner = document.getElementById('sale-banner');
-    const saleEnd = (() => {
-      const now = new Date();
-      const daysUntilNextSunday = ((7 - now.getDay()) % 7) || 7;
-      const end = new Date(now);
-      end.setDate(now.getDate() + daysUntilNextSunday + 7); // one week from next Sunday
-      end.setHours(23, 59, 59, 999);
-      return end;
-    })();
+    const saleEnd = new Date('2025-09-22T00:00:00');
 
     function pluralize(value, unit) {
       return `${value} ${unit}${value === 1 ? '' : 's'}`;
@@ -108,23 +101,22 @@
         clearInterval(intervalId);
         return;
       }
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
 
-      let message = 'Sale ends in ';
-      if (days > 0) {
-        message += pluralize(days, 'day');
-        if (hours > 0) {
-          message += ` and ${pluralize(hours, 'hour')}`;
-        }
-      } else {
-        message += pluralize(hours, 'hour');
-      }
-      saleBanner.textContent = message;
+      const totalMinutes = Math.floor(diff / (1000 * 60));
+      const days = Math.floor(totalMinutes / (60 * 24));
+      const hours = Math.floor((totalMinutes % (60 * 24)) / 60);
+      const minutes = totalMinutes % 60;
+
+      const parts = [];
+      if (days > 0) parts.push(pluralize(days, 'day'));
+      if (hours > 0 || days > 0) parts.push(pluralize(hours, 'hour'));
+      parts.push(pluralize(minutes, 'minute'));
+
+      saleBanner.textContent = `Sale ends in ${parts.join(', ')}`;
     }
 
     updateSaleBanner();
-    const intervalId = setInterval(updateSaleBanner, 60 * 60 * 1000);
+    const intervalId = setInterval(updateSaleBanner, 60 * 1000);
   </script>
 </body>
 </html>
