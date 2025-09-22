@@ -14,22 +14,6 @@ body {
     margin: 0 auto;
 }
 
-/* Sale banner */
-.sale-banner {
-    background-color: #4b0082;
-    color: #fff;
-    padding: 10px;
-    font-weight: bold;
-    text-align: center;
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    margin-bottom: 20px;
-}
-
 /* Header */
 .site-header {
     margin-bottom: 40px;
