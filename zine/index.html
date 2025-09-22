@@ -33,7 +33,6 @@
 </head>
 <body>
   <div id="nav-placeholder"></div>
-  <div id="sale-banner" class="sale-banner"></div>
   <div id="content">
       <section class="hero">
         <h1>Piss Plaza Zine</h1>
@@ -45,7 +44,7 @@
       </section>
 
       <div class="cta-row">
-        <a id="physical-link" class="btn btn-primary" href="https://mixam.com/print-on-demand/68c096b877b4144e89f697e6">Buy Physical — <s>$18</s> $15</a>
+        <a id="physical-link" class="btn btn-primary" href="https://mixam.com/print-on-demand/68c096b877b4144e89f697e6">Buy Physical — $18</a>
         <a class="btn btn-secondary" href="https://ko-fi.com/wildstrokes/tiers">Get Digital (Splash Zone) — $5/mo</a>
       </div>
       <p class="cta-note">Digital file available after joining via members-only Telegram channel.</p>
@@ -84,39 +83,6 @@
         physical.href += query;
       }
     }
-  </script>
-  <script>
-    const saleBanner = document.getElementById('sale-banner');
-    const saleEnd = new Date('2025-09-22T00:00:00');
-
-    function pluralize(value, unit) {
-      return `${value} ${unit}${value === 1 ? '' : 's'}`;
-    }
-
-    function updateSaleBanner() {
-      const now = new Date();
-      const diff = saleEnd - now;
-      if (diff <= 0) {
-        saleBanner.textContent = 'Sale has ended';
-        clearInterval(intervalId);
-        return;
-      }
-
-      const totalMinutes = Math.floor(diff / (1000 * 60));
-      const days = Math.floor(totalMinutes / (60 * 24));
-      const hours = Math.floor((totalMinutes % (60 * 24)) / 60);
-      const minutes = totalMinutes % 60;
-
-      const parts = [];
-      if (days > 0) parts.push(pluralize(days, 'day'));
-      if (hours > 0 || days > 0) parts.push(pluralize(hours, 'hour'));
-      parts.push(pluralize(minutes, 'minute'));
-
-      saleBanner.textContent = `Sale ends in ${parts.join(', ')}`;
-    }
-
-    updateSaleBanner();
-    const intervalId = setInterval(updateSaleBanner, 60 * 1000);
   </script>
 </body>
 </html>
