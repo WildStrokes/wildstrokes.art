@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wild Strokes Roadtrip</title>
+    <meta http-equiv="refresh" content="5; url=https://forms.gle/kpn4xnDGhYsLgC6o9" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CNSS235NES"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-CNSS235NES");
+
+      document.addEventListener("DOMContentLoaded", () => {
+        gtag("event", "roadtrip_form_redirect", {
+          event_category: "link",
+          event_label: "roadtrip_google_form",
+        });
+
+        setTimeout(() => {
+          window.location.href = "https://forms.gle/kpn4xnDGhYsLgC6o9";
+        }, 1000);
+      });
+    </script>
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Poppins", Arial, Helvetica, sans-serif;
+        background-color: #f5f0f0;
+        color: #2d2a2a;
+        text-align: center;
+        padding: 2rem;
+      }
+      a {
+        color: inherit;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>We&rsquo;re sending you to the Roadtrip form!</h1>
+      <p>You&rsquo;ll be redirected automatically. If that doesn&rsquo;t happen, <a href="https://forms.gle/kpn4xnDGhYsLgC6o9">click here to continue</a>.</p>
+    </main>
+  </body>
+</html>
