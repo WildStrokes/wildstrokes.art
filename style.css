@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 /* Global styles */
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -16,6 +18,14 @@ body {
 
 #content.homepage-placeholder {
     max-width: min(1200px, 95vw);
+}
+
+.urban-tagline {
+    font-family: 'Bebas Neue', 'Impact', 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #1f1f1f;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.15);
 }
 
 /* Header */
