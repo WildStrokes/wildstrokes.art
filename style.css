@@ -14,6 +14,10 @@ body {
     margin: 0 auto;
 }
 
+#content.homepage-placeholder {
+    max-width: min(1200px, 95vw);
+}
+
 /* Header */
 .site-header {
     margin-bottom: 40px;
@@ -169,6 +173,35 @@ button.button {
 
 button.button:hover {
     background-color: #b3d9ff;
+}
+
+/* Homepage feature grid */
+.homepage-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1rem, 3vw, 2rem);
+    margin: 0 auto clamp(2rem, 5vw, 3rem);
+    width: 100%;
+    align-items: start;
+}
+
+.homepage-feature-tile {
+    border-radius: 18px;
+    overflow: hidden;
+    background: #e8dffb;
+    box-shadow: 0 12px 24px rgba(30, 0, 60, 0.12);
+}
+
+.homepage-feature-tile img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 680px) {
+    .homepage-feature-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* YCH editor */
