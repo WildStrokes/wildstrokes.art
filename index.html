@@ -24,48 +24,29 @@
 
      gtag('config', 'G-CNSS235NES');
    </script>
-   <style>#content { display: none; }</style>
-   <script src="/js/age-gate.js" defer></script>
+   <!--
+      <style>#content { display: none; }</style>
+      <script src="/js/age-gate.js" defer></script>
+      <script defer>
+         document.addEventListener('DOMContentLoaded', () => initAgeGate());
+      </script>
+   -->
    <script src="/js/nav.js" defer></script>
-   <script defer>
-      document.addEventListener('DOMContentLoaded', () => initAgeGate());
-   </script>
 </head>
 <body>
     <div id="nav-placeholder"></div>
     <div id="content" class="homepage-placeholder">
         <main aria-labelledby="homepage-title">
-            <section class="homepage-feature-grid" aria-label="Housebroke preview artwork">
-                <div class="homepage-feature-row">
-                    <figure class="homepage-feature-tile homepage-feature-vertical">
-                        <a href="https://wildstrokes.printify.me/product/24644096/dumpster-whiz-rolled-poster">
-                            <img src="/housebrokeassets/Dumpster%20Whiz.jpeg" alt="Housebroke illustration of a canine character kneeling on a dumpster." loading="lazy">
-                        </a>
-                    </figure>
-                    <figure class="homepage-feature-tile homepage-feature-horizontal">
-                        <a href="https://wildstrokes.printify.me/product/24643684/ally-whiz-rolled-poster">
-                            <img src="/housebrokeassets/Alley%20Whiz.png" alt="Housebroke illustration of a character relieving themselves in an alley." loading="lazy">
-                        </a>
-                    </figure>
-                </div>
-                <div class="homepage-feature-row">
-                    <figure class="homepage-feature-tile homepage-feature-horizontal">
-                        <a href="https://wildstrokes.printify.me/product/24644621/bathroom-whiz-rolled-poster">
-                            <img src="/housebrokeassets/Toilet%20Whiz.jpeg" alt="Housebroke illustration of a canine character seated on a toilet." loading="lazy">
-                        </a>
-                    </figure>
-                    <figure class="homepage-feature-tile homepage-feature-vertical">
-                        <a href="https://wildstrokes.printify.me/product/24644489/urinal-whiz-rolled-poster">
-                            <img src="/housebrokeassets/Urinal%20Whiz.jpeg" alt="Housebroke illustration of a canine character standing at a urinal." loading="lazy">
-                        </a>
-                    </figure>
-                </div>
-            </section>
+            <!-- Removed feature grid pending redesign.
+                 Original Printify product links preserved for reference:
+                 https://wildstrokes.printify.me/product/24644096/dumpster-whiz-rolled-poster
+                 https://wildstrokes.printify.me/product/24643684/ally-whiz-rolled-poster
+                 https://wildstrokes.printify.me/product/24644621/bathroom-whiz-rolled-poster
+                 https://wildstrokes.printify.me/product/24644489/urinal-whiz-rolled-poster
+            -->
             <h1 id="homepage-title">Homepage under construction</h1>
             <p>Check back soon for new content.</p>
         </main>
-
-        <button id="clearButton" onclick="clearAgeVerification()">Clear Age Verification</button>
     </div>
 
 </body>
