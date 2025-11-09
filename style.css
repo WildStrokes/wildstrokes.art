@@ -76,9 +76,13 @@ a:hover {
     color: inherit;
 }
 
-.site-header p {
+.site-header > p {
     font-size: 1.2rem;
     color: rgba(255, 255, 255, 0.85);
+}
+
+.site-header .ych-card p {
+    color: var(--color-dark);
 }
 
 
