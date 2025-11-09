@@ -269,6 +269,13 @@ button.button:hover {
     width: min(1100px, 96vw);
 }
 
+.homepage-feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: clamp(0.35rem, 1.2vw, 0.6rem);
+}
+
 .homepage-feature-row {
     display: contents;
 }
@@ -287,6 +294,14 @@ button.button:hover {
     margin: 0;
     text-decoration: none;
     color: inherit;
+}
+
+.homepage-feature-caption {
+    font-size: clamp(0.75rem, 1.8vw, 0.95rem);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+    color: inherit;
+    text-align: center;
 }
 
 .homepage-feature-tile:focus-visible {
