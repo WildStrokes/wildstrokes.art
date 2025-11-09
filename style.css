@@ -215,6 +215,55 @@ a.button:hover {
     margin: 0;
 }
 
+.homepage-product-highlight {
+    margin: clamp(2.5rem, 6vw, 4rem) auto 0;
+    width: min(760px, 95vw);
+}
+
+.homepage-product-highlight__link {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1rem, 3vw, 1.5rem);
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    background: linear-gradient(145deg, rgba(213, 83, 106, 0.14), rgba(248, 244, 244, 0.95));
+    border: 1px solid var(--color-accent);
+    border-radius: 22px;
+    padding: clamp(1.4rem, 4vw, 2.3rem);
+    box-shadow: 0 14px 28px rgba(32, 36, 37, 0.14);
+}
+
+.homepage-product-highlight__image {
+    width: min(100%, 420px);
+    border-radius: 18px;
+    box-shadow: 0 10px 22px rgba(32, 36, 37, 0.18);
+}
+
+.homepage-product-highlight__text {
+    margin: 0;
+    font-family: 'Bebas Neue', 'Impact', 'Helvetica Neue', Arial, sans-serif;
+    font-size: clamp(1.6rem, 4.5vw, 2.2rem);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-dark);
+}
+
+.homepage-product-highlight__price {
+    color: var(--color-accent);
+}
+
+@media (min-width: 640px) {
+    .homepage-product-highlight__link {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .homepage-product-highlight__text {
+        font-size: clamp(1.8rem, 3.6vw, 2.4rem);
+    }
+}
+
 @media (min-width: 640px) {
     .homepage-cta {
         flex-direction: row;
