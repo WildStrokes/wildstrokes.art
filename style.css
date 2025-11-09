@@ -1,14 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+:root {
+    --color-accent: #D5536A;
+    --color-accent-soft: #F2CDD4;
+    --color-dark: #202425;
+    --color-muted: #5A6263;
+    --color-light: #F8F4F4;
+    --color-border: #D9DDDD;
+}
+
 /* Global styles */
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
-    background-color: #faf6ff; /* light pastel background */
-    color: #333;
+    background-color: var(--color-light);
+    color: var(--color-dark);
     text-align: center;
     margin: 0;
     padding: 20px;
+}
+
+a {
+    color: var(--color-accent);
+}
+
+a:hover {
+    color: #C0445C;
 }
 
 #content {
@@ -24,7 +41,7 @@ body {
     font-family: 'Bebas Neue', 'Impact', 'Helvetica Neue', Arial, sans-serif;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #1f1f1f;
+    color: var(--color-dark);
     text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.08);
     display: inline-flex;
     flex-direction: column;
@@ -40,7 +57,7 @@ body {
 .urban-tagline__subhead {
     font-size: clamp(1.1rem, 3vw, 1.6rem);
     letter-spacing: 0.18em;
-    opacity: 0.85;
+    color: var(--color-muted);
 }
 
 /* Header */
@@ -55,7 +72,7 @@ body {
 
 .site-header p {
     font-size: 1.2rem;
-    color: #555;
+    color: var(--color-muted);
 }
 
 
@@ -66,9 +83,10 @@ body {
     flex-wrap: wrap;
     gap: 15px;
     margin-bottom: 20px;
-    background-color: #fff;
+    background-color: var(--color-light);
     padding: 10px 0;
-    box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+    box-shadow: 0 2px 4px rgb(32 36 37 / 8%);
+    border-bottom: 1px solid var(--color-border);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -77,14 +95,15 @@ body {
 .site-nav a {
     display: inline-block;
     padding: 8px 12px;
-    color: #333;
+    color: var(--color-dark);
     text-decoration: none;
     border-radius: 4px;
     transition: background-color 0.3s, color 0.3s;
 }
 
 .site-nav a:hover {
-    background-color: #cce5ff;
+    background-color: var(--color-accent);
+    color: var(--color-light);
 }
 
 /* YCH grid – give the whole row breathing room */
@@ -98,8 +117,8 @@ body {
 
 /* Individual card */
 .ych-card {
-  background-color: #f9e6ff;       /* pastel pink */
-  border: 1px solid #e6d6eb;
+  background-color: var(--color-accent-soft);
+  border: 1px solid var(--color-accent);
   border-radius: 12px;
   padding: 20px;
   /* make it fill the row */
@@ -108,6 +127,7 @@ body {
   max-width: none;                 /* ← remove the 800 px cap */
   box-shadow: 0 4px 10px rgb(0 0 0 / 5%);
   text-align: left;
+  color: var(--color-dark);
 }
 
 /* Card images */
@@ -130,13 +150,13 @@ body {
 }
 
 .badge--open {
-    background-color: #d4f4dd;
-    color: #225533;
+    background-color: var(--color-accent);
+    color: var(--color-light);
 }
 
 .badge--sold {
-    background-color: #f9d4d4;
-    color: #993333;
+    background-color: var(--color-dark);
+    color: var(--color-light);
 }
 
 /* YCH Options List */
@@ -148,7 +168,7 @@ body {
 
 .ych-options li {
     margin: 6px 0;
-    color: #555;
+    color: var(--color-muted);
 }
 
 /* Buttons if you add any */
@@ -156,8 +176,8 @@ a.button {
     display: inline-block;
     margin: 20px 10px;
     padding: 12px 24px;
-    background-color: #cce5ff;
-    color: #333;
+    background-color: var(--color-accent);
+    color: var(--color-light);
     text-decoration: none;
     font-size: 16px;
     border-radius: 10px;
@@ -165,7 +185,7 @@ a.button {
 }
 
 a.button:hover {
-    background-color: #b3d9ff;
+    background-color: #C0445C;
 }
 
 /* Portfolio gallery styling */
@@ -179,7 +199,7 @@ a.button:hover {
     width: 80%;
     max-width: 700px;
     margin: 20px 0;
-    border: 2px solid #555;
+    border: 2px solid var(--color-dark);
     border-radius: 10px;
 }
 
@@ -187,8 +207,8 @@ button.button {
     display: inline-block;
     margin: 20px 10px;
     padding: 12px 24px;
-    background-color: #cce5ff;
-    color: #333;
+    background-color: var(--color-accent);
+    color: var(--color-light);
     border: none;
     font-size: 16px;
     border-radius: 10px;
@@ -197,7 +217,7 @@ button.button {
 }
 
 button.button:hover {
-    background-color: #b3d9ff;
+    background-color: #C0445C;
 }
 
 /* Homepage feature grid */
@@ -217,8 +237,8 @@ button.button:hover {
 .homepage-feature-tile {
     border-radius: 18px;
     overflow: hidden;
-    background: #e8dffb;
-    box-shadow: 0 12px 24px rgba(30, 0, 60, 0.12);
+    background: linear-gradient(135deg, rgba(213, 83, 106, 0.18), rgba(248, 244, 244, 0.95));
+    box-shadow: 0 12px 24px rgba(32, 36, 37, 0.12);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -231,7 +251,7 @@ button.button:hover {
 }
 
 .homepage-feature-tile:focus-visible {
-    outline: 3px solid rgba(98, 51, 170, 0.7);
+    outline: 3px solid rgba(213, 83, 106, 0.7);
     outline-offset: 4px;
 }
 
@@ -257,9 +277,9 @@ button.button:hover {
 .ych-edit-item {
     margin-bottom: 20px;
     padding: 10px;
-    border: 1px solid #e6d6eb;
+    border: 1px solid var(--color-border);
     border-radius: 8px;
-    background-color: #fdf8ff;
+    background-color: var(--color-light);
 }
 
 .ych-edit-item label {
@@ -287,7 +307,7 @@ button.button:hover {
 .site-footer {
     margin-top: 40px;
     font-size: 0.9rem;
-    color: #777;
+    color: var(--color-muted);
 }
 
 /* Misc */
@@ -295,7 +315,7 @@ button.button:hover {
     width: 100%;
     max-width: 700px;
     margin: 30px 0;
-    border: 2px solid #555;
+    border: 2px solid var(--color-dark);
     border-radius: 10px;
 }
 
@@ -311,7 +331,7 @@ button.button:hover {
 }
 
 .age-gate-dialog {
-    background: #fff;
+    background: var(--color-light);
     padding: 20px;
     border-radius: 8px;
     text-align: center;
@@ -349,9 +369,10 @@ button.button:hover {
 /* CTAs */
 .cta-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 720px; margin: 12px auto 6px; padding: 0 16px; }
 .btn { display: inline-block; text-align: center; padding: 12px 16px; border-radius: 6px; text-decoration: none; border: 2px solid currentColor; min-height: 44px; }
-.btn-primary { color: #fff; background: #000; }
-.btn-secondary { background: transparent; }
-.cta-note { max-width: 720px; margin: 6px auto 16px; padding: 0 16px; font-size: .95rem; opacity: .85; }
+.btn-primary { color: var(--color-light); background: var(--color-accent); border-color: var(--color-accent); }
+.btn-secondary { background: transparent; color: var(--color-dark); border-color: var(--color-dark); }
+.btn-secondary:hover { color: var(--color-light); background: var(--color-dark); }
+.cta-note { max-width: 720px; margin: 6px auto 16px; padding: 0 16px; font-size: .95rem; color: var(--color-muted); }
 
 @media (max-width: 640px) {
     .subhead { font-size: 1rem; }
