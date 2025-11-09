@@ -63,16 +63,22 @@ a:hover {
 /* Header */
 .site-header {
     margin-bottom: 40px;
+    background-color: #D95D71;
+    color: var(--color-light);
+    padding: 30px clamp(1.5rem, 4vw, 3rem);
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgb(217 93 113 / 30%);
 }
 
 .site-header h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
+    color: inherit;
 }
 
 .site-header p {
     font-size: 1.2rem;
-    color: var(--color-muted);
+    color: rgba(255, 255, 255, 0.85);
 }
 
 
