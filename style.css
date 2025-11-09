@@ -255,6 +255,53 @@ a.button:hover {
     color: var(--color-accent);
 }
 
+.homepage-store-callout {
+    margin: clamp(2.5rem, 6vw, 4rem) auto 0;
+    width: min(560px, 92vw);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(1rem, 3vw, 1.6rem);
+    text-align: center;
+    padding: clamp(1.4rem, 3.6vw, 2rem);
+    border-radius: 22px;
+    background: linear-gradient(160deg, rgba(213, 83, 106, 0.14), rgba(255, 255, 255, 0.95));
+    box-shadow: 0 12px 28px rgba(32, 36, 37, 0.14);
+}
+
+.homepage-store-callout__image {
+    width: min(100%, 320px);
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(32, 36, 37, 0.16);
+}
+
+.homepage-store-callout__text {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.4rem, 2vw, 0.8rem);
+    font-size: clamp(1rem, 2.6vw, 1.2rem);
+    font-weight: 600;
+    color: var(--color-dark);
+}
+
+.homepage-store-callout__link {
+    color: var(--color-accent);
+    font-size: clamp(1rem, 2.6vw, 1.2rem);
+}
+
+@media (min-width: 640px) {
+    .homepage-store-callout {
+        flex-direction: row;
+        justify-content: center;
+        text-align: left;
+    }
+
+    .homepage-store-callout__text {
+        align-items: flex-start;
+    }
+}
+
 @media (min-width: 640px) {
     .homepage-product-highlight__link {
         flex-direction: row;
