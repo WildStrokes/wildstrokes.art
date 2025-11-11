@@ -24,7 +24,6 @@
 
     gtag('config', 'G-CNSS235NES');
   </script>
-  <style>#content { display: none; }</style>
   <script src="../js/age-gate.js" defer></script>
   <script src="/js/nav.js" defer></script>
   <script defer>
@@ -34,9 +33,9 @@
 <body>
   <div id="nav-placeholder"></div>
 
-  <div id="content">
+  <div id="content" class="age-locked">
 
-    <header class="site-header"> 
+    <header class="site-header">
       <section class="ych-card" id="booking-info">
         <h2>Booking a YCH</h2>
         <p>
@@ -53,12 +52,12 @@
         <p>Don’t see what you’re looking for? I'm open to custom comms — let me know in the form.</p>
       </section>
 
-      <section class="ych-card" style="margin-top: 2rem; font-style: italic;">
+      <section class="ych-card ych-card--note">
         <p><strong>Estimated delivery time:</strong> ~2 weeks</p>
       </section>
     </header>
 
-    <section class="ych-card" style="margin-top: 2rem;">
+    <section class="ych-card">
       <div class="form-wrapper">
         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf7wqVbzilhgoqPrFv1iiyDsL-lYYCm8W1GBOY0L_jamXYIZA/viewform?embedded=true"
           width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" loading="lazy"
@@ -68,9 +67,9 @@
 
     <footer class="site-footer">© 2024 WildStrokes. All rights reserved.</footer>
 
-  </div>
+    <button id="clearButton" class="button button--subtle" onclick="clearAgeVerification()">Clear Age Verification</button>
 
-  <button id="clearButton" onclick="clearAgeVerification()">Clear Age Verification</button>
+  </div>
 
 </body>
 </html>
