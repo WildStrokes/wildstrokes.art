@@ -33,6 +33,10 @@ a:hover {
     margin: 0 auto;
 }
 
+#content > * + * {
+    margin-top: clamp(1.5rem, 4vw, 2.5rem);
+}
+
 #content.homepage-placeholder {
     max-width: min(1200px, 95vw);
 }
@@ -62,12 +66,16 @@ a:hover {
 
 /* Header */
 .site-header {
-    margin-bottom: 40px;
+    margin-bottom: 0;
     background-color: #D95D71;
     color: var(--color-light);
     padding: 30px clamp(1.5rem, 4vw, 3rem);
     border-radius: 18px;
     box-shadow: 0 12px 30px rgb(217 93 113 / 30%);
+}
+
+.site-header > * + * {
+    margin-top: clamp(1rem, 3vw, 1.6rem);
 }
 
 .site-header h1 {
@@ -136,6 +144,14 @@ a:hover {
   color: var(--color-dark);
 }
 
+.ych-card + .ych-card {
+    margin-top: clamp(1.25rem, 3vw, 1.8rem);
+}
+
+.ych-card--note {
+    font-style: italic;
+}
+
 /* Card images */
 .ych-card img {
     width: 100%;
@@ -161,6 +177,29 @@ a:hover {
     width: 100%;
     min-height: clamp(1000px, 140vh, 1600px);
     border: 0;
+}
+
+.content-panel {
+    background: #fff;
+    border-radius: 18px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 12px 30px rgb(32 36 37 / 12%);
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.content-panel h1:first-child {
+    margin-top: 0;
+}
+
+.redirect-panel {
+    max-width: min(640px, 92vw);
+    margin: clamp(3rem, 8vw, 4rem) auto;
+    text-align: center;
+}
+
+.redirect-panel p {
+    margin-bottom: 0;
+    color: var(--color-muted);
 }
 
 /* Badge styling */
@@ -194,21 +233,49 @@ a:hover {
     color: var(--color-muted);
 }
 
-/* Buttons if you add any */
-a.button {
-    display: inline-block;
-    margin: 20px 10px;
+/* Buttons */
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    margin: clamp(0.75rem, 2vw, 1.1rem) 10px;
     padding: 12px 24px;
     background-color: var(--color-accent);
     color: var(--color-light);
     text-decoration: none;
     font-size: 16px;
     border-radius: 10px;
-    transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
 
-a.button:hover {
+.button:hover,
+.button:focus-visible {
     background-color: #C0445C;
+    color: var(--color-light);
+}
+
+a.button:visited {
+    color: var(--color-light);
+}
+
+.button--subtle {
+    background: transparent;
+    color: var(--color-dark);
+    border: 1px solid var(--color-border);
+    box-shadow: none;
+}
+
+.button--subtle:hover,
+.button--subtle:focus-visible {
+    background: var(--color-accent-soft);
+    color: var(--color-dark);
+}
+
+a.button.button--subtle:visited {
+    color: var(--color-dark);
 }
 
 .homepage-cta {
@@ -337,20 +404,11 @@ a.button:hover {
 }
 
 button.button {
-    display: inline-block;
-    margin: 20px 10px;
-    padding: 12px 24px;
-    background-color: var(--color-accent);
-    color: var(--color-light);
     border: none;
-    font-size: 16px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
 }
 
-button.button:hover {
-    background-color: #C0445C;
+button.button.button--subtle {
+    border: 1px solid var(--color-border);
 }
 
 /* Homepage feature grid */
@@ -468,6 +526,10 @@ button.button:hover {
 }
 
 /* Age gate overlay */
+.age-locked {
+    display: none !important;
+}
+
 .age-gate-overlay {
     position: fixed;
     inset: 0;

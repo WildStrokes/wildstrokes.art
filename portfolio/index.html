@@ -24,9 +24,6 @@
 
         gtag('config', 'G-CNSS235NES');
     </script>
-    <style>
-        #content { display: none; }
-    </style>
     <script src="../js/age-gate.js" defer></script>
     <script src="/js/nav.js" defer></script>
     <script defer>
@@ -36,7 +33,7 @@
 <body>
     <div id="nav-placeholder"></div>
     <a class="button" href="https://wildstrokes.art">← Back to Main Page</a>
-    <div id="content">
+    <div id="content" class="age-locked">
         <header class="site-header">
             <h1>WildStrokes 18+ Art Portfolio</h1>
         </header>
@@ -53,7 +50,7 @@
             <img src="../assets/IMG_1502.jpeg" alt="Artwork 9" loading="lazy">
         </div>
 
-        <button class="button" id="clearButton" onclick="clearAgeVerification()">Clear Age Verification</button>
+        <button class="button button--subtle" id="clearButton" onclick="clearAgeVerification()">Clear Age Verification</button>
         <footer class="site-footer">© 2024 WildStrokes. All rights reserved.</footer>
     </div>
 </body>

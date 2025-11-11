@@ -15,22 +15,16 @@
     gtag('config', 'G-CNSS235NES');
   </script>
   <script src="../js/age-gate.js" defer></script>
+  <script src="/js/nav.js" defer></script>
   <script src="../js/edit-ych.js" defer></script>
   <script defer>
     document.addEventListener('DOMContentLoaded', () => initAgeGate());
   </script>
 </head>
 <body>
-  <nav class="site-nav">
-    <a href="/">Home</a>
-    <a href="/portfolio">Portfolio</a>
-    <a href="/ych">YCH</a>
-    <a href="/zine">Zine</a>
-    <a href="https://ko-fi.com/wildstrokes" target="_blank">Kofi</a>
-    <a href="https://bsky.app/profile/wildstrokes.art" target="_blank">Bluesky</a>
-  </nav>
+  <div id="nav-placeholder"></div>
 
-  <div id="content">
+  <div id="content" class="age-locked">
     <header class="site-header">
       <h1>Edit YCH JSON</h1>
     </header>
@@ -40,8 +34,8 @@
       <button class="button" id="addButton">Add YCH</button>
       <button class="button" onclick="downloadYCHs()">Download JSON</button>
     </section>
-  </div>
 
-  <button id="clearButton" onclick="clearAgeVerification()">Clear Age Verification</button>
+    <button id="clearButton" class="button button--subtle" onclick="clearAgeVerification()">Clear Age Verification</button>
+  </div>
 </body>
 </html>

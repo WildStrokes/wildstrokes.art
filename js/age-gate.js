@@ -2,8 +2,14 @@ function initAgeGate(opts = {}) {
   const msg = opts.msg || 'This page contains adult content. Are you 18 years or older?';
   const redirect = opts.redirect || 'https://google.com';
   const content = document.getElementById('content');
-  if (content) content.style.display = 'none';
-  const show = () => { if (content) content.style.display = 'block'; };
+  if (content) {
+    content.classList.add('age-locked');
+  }
+  const show = () => {
+    if (!content) return;
+    content.classList.remove('age-locked');
+    content.style.removeProperty('display');
+  };
   if (localStorage.getItem('ageVerified') === 'true') {
     show();
     return;
