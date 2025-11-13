@@ -279,26 +279,38 @@ a.button.button--subtle:visited {
 }
 
 .homepage-cta {
-    margin: 40px auto 0;
-    padding: clamp(20px, 4vw, 32px);
+    margin: clamp(2rem, 6vw, 3.5rem) auto 0;
+    padding: clamp(1.5rem, 5vw, 2.5rem);
     background-color: var(--color-accent-soft);
     border: 1px solid var(--color-accent);
     border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    align-items: center;
-    text-align: center;
-    max-width: 720px;
+    display: grid;
+    gap: clamp(1.2rem, 4vw, 2rem);
+    justify-items: center;
+    max-width: min(960px, 94vw);
     box-shadow: 0 8px 20px rgb(0 0 0 / 8%);
 }
 
-.homepage-cta__text {
+.homepage-cta__image {
+    width: clamp(220px, 40vw, 320px);
+    border-radius: 14px;
+    box-shadow: 0 12px 28px rgba(32, 36, 37, 0.22);
+}
+
+.homepage-cta__content {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.8rem, 3vw, 1.4rem);
+    align-items: center;
+    text-align: center;
+    max-width: 540px;
+}
+
+.homepage-cta__heading {
     margin: 0;
-    font-size: clamp(1rem, 2.4vw, 1.2rem);
+    font-size: clamp(1.3rem, 3.6vw, 2rem);
     color: var(--color-dark);
-    font-weight: 600;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.02em;
 }
 
 .homepage-cta__button {
@@ -378,13 +390,15 @@ a.button.button--subtle:visited {
 
 @media (min-width: 640px) {
     .homepage-cta {
-        flex-direction: row;
-        justify-content: space-between;
-        text-align: left;
+        grid-template-columns: clamp(240px, 30vw, 320px) 1fr;
+        align-items: center;
+        justify-items: start;
+        gap: clamp(1.8rem, 4vw, 3rem);
     }
 
-    .homepage-cta__text {
-        max-width: 460px;
+    .homepage-cta__content {
+        align-items: flex-start;
+        text-align: left;
     }
 }
 
