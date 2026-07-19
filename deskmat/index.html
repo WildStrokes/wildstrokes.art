@@ -33,17 +33,14 @@
     <!-- Main Content Area -->
     <main class="w-full flex-grow">
         
-        <!-- Section 1: Full-Width, Edge-to-Edge Showcase -->
-        <section class="w-full relative bg-zinc-950 border-y border-zinc-900 overflow-hidden">
-            <div class="w-full h-[35vh] sm:h-[45vh] md:h-[55vh] flex items-center justify-center relative">
-                <img 
-                    src="DeskMat1.png" 
-                    alt="WildStrokes Edge to Edge Desk Mat Showcase" 
-                    class="w-full h-full object-cover object-center select-none"
-                />
-                <!-- Smooth ambient dark blend at the bottom edge -->
-                <div class="absolute inset-0 bg-gradient-to-t from-[#08080a] via-transparent to-transparent opacity-50"></div>
-            </div>
+        <!-- Section 1: Full-Width, Edge-to-Edge Showcase (No Cropping) -->
+        <section class="w-full bg-zinc-950 border-y border-zinc-900">
+            <!-- w-full h-auto ensures the aspect ratio is perfectly preserved with zero cut-off -->
+            <img 
+                src="DeskMat1.png" 
+                alt="WildStrokes Edge to Edge Desk Mat Showcase" 
+                class="w-full h-auto block select-none"
+            />
         </section>
 
         <!-- Section 2: Call to Action, Copy & Details -->
