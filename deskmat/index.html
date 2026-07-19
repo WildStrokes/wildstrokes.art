@@ -9,17 +9,23 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap');
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #08080a;
+            background-color: #2F253A;
         }
         .yellow-glow {
-            text-shadow: 0 0 15px rgba(250, 204, 21, 0.35);
+            text-shadow: 0 0 15px rgba(254, 220, 42, 0.4);
         }
-        .btn-glow:hover {
-            box-shadow: 0 0 25px rgba(250, 204, 21, 0.5);
+        .purple-glow {
+            text-shadow: 0 0 15px rgba(144, 42, 254, 0.4);
+        }
+        .btn-yellow-glow:hover {
+            box-shadow: 0 0 25px rgba(254, 220, 42, 0.5);
+        }
+        .btn-purple-glow:hover {
+            box-shadow: 0 0 25px rgba(144, 42, 254, 0.5);
         }
     </style>
 </head>
-<body class="text-zinc-100 min-h-screen flex flex-col justify-between overflow-x-hidden">
+<body class="text-[#E8E6EA] min-h-screen flex flex-col justify-between overflow-x-hidden">
 
     <!-- Header: Center Logo Only -->
     <header class="w-full flex justify-center items-center pt-8 pb-6">
@@ -34,8 +40,7 @@
     <main class="w-full flex-grow">
         
         <!-- Section 1: Full-Width, Edge-to-Edge Showcase (No Cropping) -->
-        <section class="w-full bg-zinc-950 border-y border-zinc-900">
-            <!-- w-full h-auto ensures the aspect ratio is perfectly preserved with zero cut-off -->
+        <section class="w-full bg-[#330069]/30 border-y border-[#330069]/50">
             <img 
                 src="DeskMat1.png" 
                 alt="WildStrokes Edge to Edge Desk Mat Showcase" 
@@ -50,18 +55,18 @@
             <a 
                 href="https://store.wildstrokes.art/product/29072923" 
                 target="_blank"
-                class="btn-glow inline-block bg-yellow-400 text-zinc-950 font-black text-lg md:text-xl px-14 py-4 rounded-xl tracking-wide uppercase transition-all duration-300 transform hover:-translate-y-1 mb-10"
+                class="btn-yellow-glow inline-block bg-[#FEDC2A] text-[#514400] font-black text-lg md:text-xl px-14 py-4 rounded-xl tracking-wide uppercase transition-all duration-300 transform hover:-translate-y-1 mb-10"
             >
                 Get yours!
             </a>
 
             <!-- Primary Description -->
-            <p class="text-lg md:text-xl text-zinc-300 leading-relaxed font-light max-w-2xl mb-16">
+            <p class="text-lg md:text-xl text-[#F7EFFF] leading-relaxed font-light max-w-2xl mb-16">
                 This highly detailed desk mat features <span class="text-white font-semibold">20+ furries peeing</span> in all sorts of places. Each of the full scenes were sponsored by members of my community.
             </p>
 
             <!-- Secondary Detail Image Layout -->
-            <div class="w-full bg-zinc-950 border border-zinc-900 rounded-2xl p-2 mb-16 shadow-2xl backdrop-blur-sm">
+            <div class="w-full bg-[#330069]/20 border border-[#330069]/60 rounded-2xl p-2 mb-16 shadow-2xl backdrop-blur-sm">
                 <img 
                     src="DeskMat2.png" 
                     alt="Desk Mat Feature Detail" 
@@ -70,24 +75,24 @@
             </div>
 
             <!-- Commissions & Connected Social Channels -->
-            <div class="w-full max-w-xl bg-gradient-to-b from-zinc-900/30 to-transparent p-8 rounded-2xl border border-zinc-900 text-center">
-                <p class="text-base md:text-lg text-zinc-300 font-light mb-6 leading-relaxed">
-                    My comms are open and I'd love to draw you peeing. See more of my art on my <a href="https://bsky.app/profile/wildstrokes.art" target="_blank" class="text-yellow-400 hover:underline font-medium transition-all">Bluesky</a> and get in touch with me on <a href="https://t.me/wildstrokesart" target="_blank" class="text-yellow-400 hover:underline font-medium transition-all">Telegram</a>.
+            <div class="w-full max-w-xl bg-gradient-to-b from-[#330069]/30 to-transparent p-8 rounded-2xl border border-[#330069]/40 text-center">
+                <p class="text-base md:text-lg text-[#E8E6EA] font-light mb-6 leading-relaxed">
+                    My comms are open and I'd love to draw you peeing. See more of my art on my <a href="https://bsky.app/profile/wildstrokes.art" target="_blank" class="text-[#FEDC2A] hover:underline font-medium transition-all yellow-glow">Bluesky</a> and get in touch with me on <a href="https://t.me/wildstrokesart" target="_blank" class="text-[#E5CDFF] hover:underline font-medium transition-all purple-glow">Telegram</a>.
                 </p>
                 
-                <!-- Quick Navigation Grid -->
+                <!-- Navigation Grid Matching Mockup Accents -->
                 <div class="grid grid-cols-2 gap-4 w-full">
                     <a 
                         href="https://bsky.app/profile/wildstrokes.art" 
                         target="_blank"
-                        class="flex items-center justify-center bg-zinc-950 hover:bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-yellow-400 font-semibold py-3.5 px-4 rounded-xl transition-all"
+                        class="btn-yellow-glow flex items-center justify-center bg-[#FEDC2A] text-[#514400] font-bold py-3.5 px-4 rounded-xl transition-all"
                     >
                         <span>Bluesky</span>
                     </a>
                     <a 
                         href="https://t.me/wildstrokesart" 
                         target="_blank"
-                        class="flex items-center justify-center bg-zinc-950 hover:bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-yellow-400 font-semibold py-3.5 px-4 rounded-xl transition-all"
+                        class="btn-purple-glow flex items-center justify-center bg-[#E5CDFF] text-[#330069] font-bold py-3.5 px-4 rounded-xl transition-all"
                     >
                         <span>Telegram</span>
                     </a>
@@ -98,9 +103,10 @@
     </main>
 
     <!-- Sleek Minimal Footer -->
-    <footer class="w-full border-t border-zinc-950 py-6 text-center text-[10px] tracking-widest text-zinc-600 uppercase">
+    <footer class="w-full border-t border-[#330069]/40 py-6 text-center text-[10px] tracking-widest text-[#5D5A60] uppercase">
         &copy; 2026 WildStrokes &bull; Adult Art Showcase
     </footer>
 
 </body>
+</html>
 </html>
