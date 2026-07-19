@@ -41,10 +41,12 @@
         
         <!-- Section 1: Full-Width, Edge-to-Edge Showcase (No Cropping) -->
         <section class="w-full bg-[#330069]/30 border-y border-[#330069]/50">
+            <!-- UPDATED: New filename and fetchpriority added here -->
             <img 
-                src="DeskMat1.png" 
+                src="HeroMat.png" 
                 alt="WildStrokes Edge to Edge Desk Mat Showcase" 
                 class="w-full h-auto block select-none"
+                fetchpriority="high"
             />
         </section>
 
@@ -66,10 +68,12 @@
             </p>
 
             <!-- Secondary Detail Image (No Container) -->
+            <!-- UPDATED: Added loading="lazy" so it doesn't steal bandwidth from the hero image -->
             <img 
                 src="DeskMat2.png" 
                 alt="Desk Mat Feature Detail" 
                 class="w-full h-auto mb-16 select-none"
+                loading="lazy"
             />
 
             <!-- Commissions & Connected Social Channels -->
