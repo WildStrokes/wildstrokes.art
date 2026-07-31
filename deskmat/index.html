@@ -116,13 +116,21 @@
                 loading="lazy"
             />
 
-            <!-- Real Life Photos Grid (Moved down & set to a compact 2x2 grid to reduce scrolling) -->
-            <div class="w-full max-w-3xl mx-auto mb-16">
-                <div class="grid grid-cols-2 gap-3 sm:gap-4 w-full items-start">
-                    <img src="IMG_7039.webp" alt="Real life view of the desk mat" class="w-full h-auto rounded-lg border border-zinc-800/50 shadow-lg" loading="lazy" />
-                    <img src="IMG_7042.webp" alt="Close up photo of the desk mat" class="w-full h-auto rounded-lg border border-zinc-800/50 shadow-lg" loading="lazy" />
-                    <img src="IMG_7044.webp" alt="Desk mat in a real setup" class="w-full h-auto rounded-lg border border-zinc-800/50 shadow-lg" loading="lazy" />
-                    <img src="IMG_7037.webp" alt="Another real life angle of the desk mat" class="w-full h-auto rounded-lg border border-zinc-800/50 shadow-lg" loading="lazy" />
+            <!-- Real Life Photos Gallery (Uniform squares, 4-col desktop, 2-col mobile) -->
+            <div class="w-full max-w-4xl mx-auto mb-16">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
+                    <div class="overflow-hidden rounded-xl border border-zinc-800/80 shadow-lg group bg-black/20">
+                        <img src="IMG_7039.webp" alt="Real life view of the desk mat" class="w-full h-full aspect-square object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+                    </div>
+                    <div class="overflow-hidden rounded-xl border border-zinc-800/80 shadow-lg group bg-black/20">
+                        <img src="IMG_7042.webp" alt="Close up photo of the desk mat" class="w-full h-full aspect-square object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+                    </div>
+                    <div class="overflow-hidden rounded-xl border border-zinc-800/80 shadow-lg group bg-black/20">
+                        <img src="IMG_7044.webp" alt="Desk mat in a real setup" class="w-full h-full aspect-square object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+                    </div>
+                    <div class="overflow-hidden rounded-xl border border-zinc-800/80 shadow-lg group bg-black/20">
+                        <img src="IMG_7037.webp" alt="Another real life angle of the desk mat" class="w-full h-full aspect-square object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+                    </div>
                 </div>
             </div>
 
